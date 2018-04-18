@@ -1,9 +1,14 @@
-def BubbleSort(genes):
-	
-	n = len(genes)	
+#!/usr/bin/env python
+# Name: Marwa Ahmed, Shan Shan Huang & Mercylyn Wiemer
+# Heuristieken: first solution
 
+"""
+This program sorts a list of genes.
+"""
+def BubbleSort(genes):
+	n = len(genes)
 	count = 0
-	
+
 	for i in range (n):
 		for j in range (n - 1):
 			if genes[j] > genes[j + 1]:
@@ -17,6 +22,3 @@ if __name__ == "__main__":
 							14, 15, 16, 17, 21, 3, 4, 9]
 
 BubbleSort(genes_melanogaster)
-
-
-
