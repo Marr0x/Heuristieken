@@ -6,24 +6,20 @@
 # Datastructure of the fruitfly case
 
 import os
+import helpers
 
 class Fruitfly:
 
-	def __init__(self):
+	def __init__(self, geneset):
 		self.genes = []
 
-	def get_genes(self):
+		self.geneset = geneset
 
-		# change current dir to parent directory to access data folder
-		os.chdir(os.path.dirname(os.getcwd()))
+		if self.geneset is 1:
+			self.genes = helpers.gene_set1()
 
-		# open file with D. melanogaster genome
-		with open('data/genome.txt', 'r') as file:
-			gene_list = file.read().split(',')
-
-		# store every gene in genes
-		for gene in gene_list:
-			self.genes.append(int(gene))
+		elif self.geneset is 2:
+			self.genes = helpers.gene_set2()
 
 	def print_genes(self):
 		print(self.genes)
@@ -39,14 +35,31 @@ class Fruitfly:
 					count += 1
 		print(count)
 
+	def pancake_sort(self):
+		n = len(self.genes)
+		count = 0
+
+		for i in range(n - 1):
+
+			minimum = min(self.genes[i:])
+			minimum_index = self.genes[i:].index(minimum)
+
+			j = i + minimum_index
+
+			if minimum is not self.genes[i]:
+				self.genes[i:j + 1] = reversed(self.genes[i: j + 1])
+				count += 1
+
+				print(len(self.genes[i:j + 1]))
+
+		print (count)
+
 def main ():
 
-	set1 = Fruitfly()
-	set1.get_genes()
-	set1.print_genes()
-	set1.bubble_sort()
-	set1.print_genes()
-
+	genes = Fruitfly(1)
+	genes.print_genes()
+	genes.pancake_sort()
+	genes.print_genes()
 
 if __name__ == "__main__":
 	main()
