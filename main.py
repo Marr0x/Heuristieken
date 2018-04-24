@@ -35,7 +35,7 @@ class Fruitfly:
 					count += 1
 		print(count)
 
-	def pancake_sort(self):
+	def smallest_first_sort(self):
 		n = len(self.genes)
 		count = 0
 
