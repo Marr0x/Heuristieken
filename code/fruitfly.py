@@ -50,8 +50,6 @@ class Fruitfly:
 				self.genes[i:j + 1] = reversed(self.genes[i: j + 1])
 				count += 1
 
-				print(len(self.genes[i:j + 1]))
-
 		print (count)
 
 def main ():
