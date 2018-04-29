@@ -1,30 +1,25 @@
-# fruitfly.py
+# main.py
 # 
-# Heuristieken - Case: fruitflies
+# Heuristics - Case: fruit flies
 # Authors: Marwa Ahmed, Shan Shan Huang & Mercylyn wiemer
 # 
-# Datastructure of the fruitfly case
+# Implements algorithms to find the evolutionary path between fruit fly species.
 
-import os
-import helpers
+from code import helpers
 
 class Fruitfly:
 
-	def __init__(self, geneset):
-		self.genes = []
+	def __init__(self, genome_file):
+		""" initialize with an array of genes from chosen fruitfly genome. """
 
-		self.geneset = geneset
-
-		if self.geneset is 1:
-			self.genes = helpers.gene_set1()
-
-		elif self.geneset is 2:
-			self.genes = helpers.gene_set2()
+		self.genes = helpers.load_genome(genome_file)
 
 	def print_genes(self):
 		print(self.genes)
 
 	def bubble_sort(self):
+		""" This program sorts a list of genes using bubblesort. """
+
 		n = len(self.genes)
 		count = 0
 
@@ -33,9 +28,12 @@ class Fruitfly:
 				if self.genes[j] > self.genes[j + 1]:
 					self.genes[j], self.genes[j + 1] = self.genes[j + 1], self.genes[j]
 					count += 1
-		print(count)
+		print("count: {}" .format(count))
 
 	def smallest_first_sort(self):
+		""" This program sorts a list of genes by making inversions so that the
+			smallest number constantly get sorted first. Upperbound: n - 1 """
+
 		n = len(self.genes)
 		count = 0
 
@@ -50,14 +48,17 @@ class Fruitfly:
 				self.genes[i:j + 1] = reversed(self.genes[i: j + 1])
 				count += 1
 
-		print (count)
+		print("count: {}" .format(count))
 
 def main ():
 
-	genes = Fruitfly(1)
-	genes.print_genes()
-	genes.pancake_sort()
-	genes.print_genes()
+	genome = input("Please enter the filename with a genome \n")
+
+	genome1 = Fruitfly(genome)
+	genome1.print_genes()
+
+	genome1.smallest_first_sort()
+	genome1.print_genes()
 
 if __name__ == "__main__":
 	main()
