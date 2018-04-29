@@ -1,6 +1,6 @@
 # Heuristics - Case: Fruit fly #
 
-The goal of this project is to find the evolutionary path between two fruit fly species. The genes of the fruit flies Drosophila Melanogaster and Drosophila Miranda are identical. The only difference between the genomes of the two species is that the genes are sorted in a different order due to mutations (Picture 1). Mutations occur when segments of the gene reverse. In the current project we are going to find which series of mutations led to the genome of one of the species from the other one. More series are possible, but our goal is to find the most plausible one: the series with the smallest and the least mutations.
+The goal of this project is to find the evolutionary path between two fruit fly species. The genes of the fruit flies Drosophila Melanogaster and Drosophila Miranda are identical. The only difference between the genomes of the two species is that the genes are sorted in a different order due to mutations (Picture 1). Mutations occur when segments of the gene reverse. In the current project our aim is to find which series of mutations led to the genome of one of the species from the other one. More series are possible, but our goal is to find the most plausible one: the series with the smallest and the least mutations.
 
 Picture 1.
 ![genomes fruit flies](http://heuristieken.nl/wiki/images/0/03/Tweegenomen.gif)
