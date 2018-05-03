@@ -12,23 +12,26 @@ def rev(genes, x, y):
 		x  = index of list where reversion should start
 		y = index of list where reversion should end"""
 	
-	# dit werkt nog niet. Hij schrijft genes over
-	genes[x:y+1] = genes[y:x-1:-1]
+	new_genes = genes[:]
 
-	new_genes = list(genes)
-
-	return new_genes
+	if x is 0:
+		new_genes[:y+1] = new_genes[y::-1]
+		return new_genes
+	elif y < len(genes):
+		new_genes[x:y+1] = new_genes[y:x-1:-1]
+		return new_genes
+	else:
+		print("error1")
 
 
 def main():
 
-	# er wordt nog geen reversed lijst teruggegeven
-	# maar de for loops en het indexeren werken!
-
-	genes = [4,5,3,2,1]
+	genes = [5,4,3,2,1]
 	n = len(genes)
 
 	print("genes: {}".format(genes))
+
+	count = 0
 
 	# iterates over genes, decreasing every time
 	for i in range(n - 1 , 0, -1):
@@ -39,10 +42,19 @@ def main():
 		for j in range(0, i):
 
 			x = n - 1 - i
-			y = j + 1
+			y = j + (n - i)
 			print("[{}, {}]".format(x, y))
 
+			R = rev(genes, x, y)
+
+			count += 1
+
+			# prints out reversed list
+			print(R) 
+
 		print("\n")
+
+	print(count)
 
 if __name__ == "__main__":
 	main()
