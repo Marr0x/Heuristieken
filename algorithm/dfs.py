@@ -15,10 +15,9 @@ def rev(genes, x, y):
   else:
     print("error1")
 
+def create_rev(genes):
 
-def main():
-
-  genes = [5,4,3,2,1]
+  stack = []
   n = len(genes)
 
   # iterates over genes, decreasing every time
@@ -31,11 +30,19 @@ def main():
       x = n - 1 - i
       y = j + (n - i)
 
-      R = rev(genes, x, y)
+      reversed_list = rev(genes, x, y)
 
-      # prints out reversed list
-      print(R) 
+      stack.append(reversed_list)
 
+  return stack
+
+
+def main():
+
+  genes = [5,4,3,2,1]
+
+  print(create_rev(genes))
+  
 if __name__ == "__main__":
   main()
 
