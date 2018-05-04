@@ -17,10 +17,8 @@ def rev(genes, x, y):
 
 
 def create_rev(genes):
-
-    stack = []
     n = len(genes)
-
+    children = []
     # iterates over genes, decreasing every time
     for i in range(n - 1, 0, -1):
 
@@ -31,18 +29,36 @@ def create_rev(genes):
             x = n - 1 - i
             y = j + (n - i)
 
-    reversed_list = rev(genes, x, y)
+            reversed_list = rev(genes, x, y)
 
-    stack.append(reversed_list)
+            children.append(reversed_list)
 
+    return children
+
+def add_children_stack(children, stack):
+    for child in children:
+        stack.append(child)
     return stack
-
 
 def main():
 
+    stack = []
+
     genes = [5, 4, 3, 2, 1]
 
-    print(create_rev(genes))
+    layer1 = create_rev(genes)
+
+    # for child in layer1:
+    #     stack.append(child)
+    add_children_stack(layer1, stack)
+
+    print(stack)
+
+    layer2_child1 = create_rev(stack[0])
+
+    add_children_stack(layer2_child1, stack)
+
+    print(stack)
 
 if __name__ == "__main__":
     main()
