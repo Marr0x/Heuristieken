@@ -5,7 +5,6 @@ def rev(genes, x, y):
         x  = index of list where reversion should start
         y = index of list where reversion should end
     """
-
     new_genes = genes[:]
 
     if x is 0:
@@ -21,7 +20,6 @@ def rev(genes, x, y):
 def create_rev(genes):
 
     stack = []
-
     n = len(genes)
 
     # iterates over genes, decreasing every time
@@ -47,8 +45,5 @@ def main():
 
     print(create_rev(genes))
 
-
 if __name__ == "__main__":
     main()
-
-
