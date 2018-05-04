@@ -59,45 +59,60 @@ class Node(object):
 
 class Stack:
     def __init__(self):
-        self.top = None
-        self.length = 0
+            # self.top = None
+            # self.length = 0
+            self.items = []
 
-    def __str__(self):
-        current = top
-        while current is not None:
-            print(current.value)
-            current = current.genome
+    def push(self, item):
+        # self.top = Node(value, self.top)
+        # self.length += 1
+        self.items.append(item)
 
-    def push(self, value):
-        self.top = Node(value, self.top)
-        self.length += 1
 
-    def top(self):
-        return self.top.genome
+    def isEmpty(self):
+        return self.items == []
 
     def pop(self):
-        temp = self.top.genome
-        self.length -= 1
-        return temp
+        return self.items.pop()
 
-    def empty(self):
-        return self.top == None
+    def peek(self):
+        return self.items[len(self.items)-1]
 
     def size(self):
-        return self.length
+        return len(self.items)
 
-def testStack():
-    stack = Stack()
-    stack.push(10)
-    assert stack.size() == 1
-    stack.push(20)
-    assert stack.size() == 2
-    # assert stack.top() == 20
-    assert stack.pop() == 20
-    assert stack.size() == 1
-    assert stack.pop() == 10
-    assert stack.size() == 0
-    print("all tests passed")
+    # def __str__(self):
+    #     current = top
+    #     while current is not None:
+    #         print(current.value)
+    #         current = current.genome
+
+    # def top(self):
+    #     return self.top.genome
+
+    # def pop(self):
+    #     temp = self.top.genome
+    #     self.length -= 1
+    #     return temp
+
+    # def empty(self):
+    #     return self.top == None
+    #
+    # def size(self):
+    #     return self.length
+
+# def testStack():
+#     stack = Stack()
+#     stack.push(10)
+#     assert stack.size() == 1
+#     stack.push(20)
+#     assert stack.size() == 2
+#     # assert stack.top() == 20
+#     assert stack.pop() == 20
+#     assert stack.size() == 1
+#     assert stack.pop() == 10
+#     assert stack.size() == 0
+#     print("all tests passed")
 
 if __name__ == "__main__":
     genome1 = Genome([5, 4, 3, 2, 1])
@@ -119,3 +134,17 @@ if __name__ == "__main__":
     # print(node1.children)
 
     # testStack()
+
+    s=Stack()
+
+    print(s.isEmpty())
+    s.push(4)
+    s.push('dog')
+    print(s.peek())
+    s.push(True)
+    print(s.size())
+    print(s.isEmpty())
+    s.push(8.4)
+    print(s.pop())
+    print(s.pop())
+    print(s.size())
