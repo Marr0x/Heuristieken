@@ -1,8 +1,10 @@
 def rev(genes, x, y):
-""" reverses a list of genes
-    genes = the list of integers
-    x  = index of list where reversion should start
-    y = index of list where reversion should end"""
+
+    """ reverses a list of genes
+        genes = the list of integers
+        x  = index of list where reversion should start
+        y = index of list where reversion should end
+    """
 
     new_genes = genes[:]
 
@@ -32,9 +34,9 @@ def create_rev(genes):
             x = n - 1 - i
             y = j + (n - i)
 
-    reversed_list = rev(genes, x, y)
+            reversed_list = rev(genes, x, y)
 
-    stack.append(reversed_list)
+            stack.append(reversed_list)
 
     return stack
 
