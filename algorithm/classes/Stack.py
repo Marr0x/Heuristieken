@@ -1,6 +1,18 @@
-class Stack(list):
+class Stack():
     def __init__(self):
-            self.items = []
+        self.items = []
+
+
+    def __getattr__(self, name):
+        return getattr(self.items, name)
+
+
+    def __str__(self):
+        return str(self.items)
+
+
+    def __len__(self):
+        return len(self.items)
 
 
     def push(self, item):
@@ -17,7 +29,3 @@ class Stack(list):
 
     def peek(self):
         return self.items[len(self.items)-1]
-
-
-    def size(self):
-        return len(self.items)
