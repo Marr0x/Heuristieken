@@ -1,6 +1,7 @@
 from classes.Stack import Stack
 from classes.Fruitfly import Fruitfly
 
+
 def rev(genes, x, y):
 
     """ reverses a list of genes
