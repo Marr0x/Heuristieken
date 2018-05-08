@@ -53,16 +53,12 @@ def dfs():
     genome1 = Fruitfly("testgenome.txt")
     # genome1.print_genes()
 
-<<<<<<< HEAD
-    upperbound = (len(genes) - 1)
-=======
     stack.push(genome1)
     # stack.push(genome1)
 
     print(stack)
 
     upperbound = genome1.genes_length()
->>>>>>> 6c14af20645b76cd8396e4cd663a6c62b0f5c1ab
 
     # stopcriterium functie
 
