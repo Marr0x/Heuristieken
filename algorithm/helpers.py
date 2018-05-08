@@ -10,7 +10,6 @@ def load_genome(file_name):
 	genes = []
 
 	# we still need to do error checking when file does not exist!
-
 	with open('data/' + file_name, 'r') as file:
 		genome_file = file.read().split(',')
 
