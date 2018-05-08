@@ -10,7 +10,7 @@ class Fruitfly(object):
     def print_genes(self):
         print(self.genes)
 
-    def genes_length(self):
+    def __len__(self):
         return len(self.genes)
 
     def bubble_sort(self):

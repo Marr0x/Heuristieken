@@ -58,7 +58,9 @@ def dfs():
 
     print(stack)
 
-    upperbound = genome1.genes_length()
+    upperbound = len(genome1)
+
+    print(upperbound)
 
     # stopcriterium functie
 
