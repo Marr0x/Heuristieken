@@ -54,9 +54,10 @@ def dfs():
     # genome1.print_genes()
 
     stack.push(genome1)
+    stack.push(genome1)
     # stack.push(genome1)
 
-    print(stack)
+    print(genome1)
 
     upperbound = len(genome1)
 
