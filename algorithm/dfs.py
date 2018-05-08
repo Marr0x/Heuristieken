@@ -1,3 +1,6 @@
+from classes.Stack import Stack
+from classes.Fruitfly import Fruitfly
+
 def rev(genes, x, y):
 
     """ reverses a list of genes
@@ -41,11 +44,18 @@ def add_children_stack(children, stack):
         stack.append(child)
     return stack
 
-def main():
+def dfs():
 
-    stack = []
+    stack = Stack()
 
-    genes = [5, 4, 3, 2, 1]
+    # genes = [5, 4, 3, 2, 1]
+    genome1 = Fruitfly(genome1)
+
+    print(genome1)
+
+    upperbound = (len(genes) - 1)
+
+    # stopcriterium functie
 
     layer1 = create_rev(genes)
 
@@ -62,4 +72,4 @@ def main():
     print(stack)
 
 if __name__ == "__main__":
-    main()
+    dfs()
