@@ -1,11 +1,11 @@
-from helpers import load
+import load
 
 class Fruitfly(object):
 
 	def __init__(self, genome_file):
 		""" initialize with an array of genes from chosen fruitfly genome. """
 
-		self.genes = helpers.load_genome(genome_file)
+		self.genes = load.load_genome(genome_file)
 
 	def print_genes(self):
 		print(self.genes)
