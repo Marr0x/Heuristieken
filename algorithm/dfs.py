@@ -48,17 +48,25 @@ def add_children_stack(children, stack):
 def dfs():
 
     stack = Stack()
+    solution = [1,2,3,4,5]
+    archive = []
 
     genome1 = Fruitfly("testgenome.txt")
-    print(genome1)
-
     stack.push(genome1)
 
-    print(genome1)
+    print(type(genome1))
+
+    while len(stack) > 0:
+        child = stack.pop()
+        if child == solution:
+            break;
+    
+
+
+    print(stack)
+
 
     upperbound = len(genome1)
-
-    print(upperbound)
 
     # stopcriterium functie
 
