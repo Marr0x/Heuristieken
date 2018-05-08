@@ -4,7 +4,7 @@
 # Authors: Marwa Ahmed, Shan Shan Huang & Mercylyn wiemer
 #
 # Implements algorithms to find the evolutionary path between fruit fly species.
-from classes.Fruitfly import Fruitfly
+from algorithm.classes.Fruitfly import Fruitfly
 
 def main ():
 
