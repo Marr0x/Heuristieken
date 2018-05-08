@@ -1,3 +1,5 @@
+from .Fruitfly import Fruitfly
+
 class Stack():
     def __init__(self):
         self.items = []
@@ -7,8 +9,15 @@ class Stack():
         return getattr(self.items, name)
 
 
-    def __str__(self):
+    def __repr__(self):
         return str(self.items)
+
+
+    # def __str__(self):
+        # return  str(self.__class__) + '\n' + '\n'.join((str(item) + ' = ' + str(self.__dict__[item]) for item in sorted(self.__dict__)))
+
+    def __str(self):
+        return self.items
 
 
     def __len__(self):
