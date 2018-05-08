@@ -43,35 +43,38 @@ def create_rev(genes):
 
 def add_children_stack(children, stack):
     for child in children:
-        stack.push(child)
+        stack.append(child)
     return stack
 
 def dfs():
 
     stack = Stack()
 
-    # genes = [5, 4, 3, 2, 1]
-    genome1 = Fruitfly('genome1.txt')
+    genome1 = Fruitfly("testgenome.txt")
+    # genome1.print_genes()
 
-    # print(genome1)
+    stack.push(genome1)
+    # stack.push(genome1)
 
-    upperbound = (len(genes) - 1)
+    print(stack)
+
+    upperbound = genome1.genes_length()
 
     # stopcriterium functie
 
-    layer1 = create_rev(genes)
+    # layer1 = create_rev(genes)
 
-    # for child in layer1:
-    #     stack.append(child)
-    add_children_stack(layer1, stack)
+    # # for child in layer1:
+    # #     stack.append(child)
+    # add_children_stack(layer1, stack)
 
-    print(stack)
+    # print(stack)
 
-    layer2_child1 = create_rev(stack[0])
+    # layer2_child1 = create_rev(stack[0])
 
-    add_children_stack(layer2_child1, stack)
+    # add_children_stack(layer2_child1, stack)
 
-    print(stack)
+    # print(stack)
 
 if __name__ == "__main__":
     dfs()
