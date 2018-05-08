@@ -1,4 +1,4 @@
-from helpers import load
+from .helpers import load
 
 class Fruitfly(object):
 
