@@ -1,3 +1,8 @@
+#   Depth-first search
+#    
+#   Names: Shan Shan Huang, Mercylyn Wiemers, Marwa Ahmed
+# 
+
 def rev(genes, x, y):
 
     """ reverses a list of genes
