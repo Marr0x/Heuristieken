@@ -1,5 +1,6 @@
 from classes.Stack import Stack
 from classes.Fruitfly import Fruitfly
+from classes.helpers import load
 
 def rev(genes, x, y):
 
@@ -49,7 +50,7 @@ def dfs():
     stack = Stack()
 
     # genes = [5, 4, 3, 2, 1]
-    genome1 = Fruitfly(genome1)
+    genome1 = Fruitfly(genome1.txt)
 
     print(genome1)
 

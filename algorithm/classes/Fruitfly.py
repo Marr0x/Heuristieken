@@ -1,4 +1,4 @@
-from algorithm import helpers
+from classes.helpers import load
 
 class Fruitfly(object):
 
