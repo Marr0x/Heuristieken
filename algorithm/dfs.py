@@ -53,8 +53,6 @@ def dfs():
     # genes = [5, 4, 3, 2, 1]
     genome1 = Fruitfly('genome1.txt')
 
-    # print(genome1)
-
     upperbound = (len(genes) - 1)
 
     # stopcriterium functie
