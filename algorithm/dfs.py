@@ -51,10 +51,9 @@ def dfs():
     stack = Stack()
 
     genome1 = Fruitfly("testgenome.txt")
-    # genome1.print_genes()
+    print(genome1)
 
     stack.push(genome1)
-    # stack.push(genome1)
 
     print(stack)
 
