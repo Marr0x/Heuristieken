@@ -43,7 +43,7 @@ def create_rev(genes):
 
 def add_children_stack(children, stack):
     for child in children:
-        stack.append(child)
+        stack.push(child)
     return stack
 
 def dfs():
@@ -51,9 +51,9 @@ def dfs():
     stack = Stack()
 
     # genes = [5, 4, 3, 2, 1]
-    genome1 = Fruitfly(genome1.txt)
+    genome1 = Fruitfly('genome1.txt')
 
-    print(genome1)
+    # print(genome1)
 
     upperbound = (len(genes) - 1)
 
