@@ -13,6 +13,9 @@ class Fruitfly(object):
     def genes_length(self):
         return len(self.genes)
 
+    def __str__(self):
+    	return str(self.genes)
+
     def bubble_sort(self):
         """ This program sorts a list of genes using bubblesort. """
 
