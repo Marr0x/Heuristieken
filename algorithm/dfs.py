@@ -52,17 +52,19 @@ def dfs():
     archive = []
 
     genome1 = Fruitfly("testgenome.txt")
+    genome1 = genome1.get_genes()
     stack.push(genome1)
 
     print(type(genome1))
-
-    while len(stack) > 0:
+   
+    while len(stack) < 10:
         child = stack.pop()
         if child == solution:
             break;
         next_gen = create_rev(child)
-        stack.push(next_gen)
 
+        for child_gen in next_gen:
+            stack.push(child_gen)
 
     print(stack)
 

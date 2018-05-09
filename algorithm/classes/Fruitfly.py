@@ -7,7 +7,6 @@ class Fruitfly(object):
 
         self.genes = load.load_genome(genome_file)
 
-
     def get_genes(self):
         return self.genes
 
