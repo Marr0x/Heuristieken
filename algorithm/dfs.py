@@ -60,7 +60,8 @@ def dfs():
         child = stack.pop()
         if child == solution:
             break;
-    
+        next_gen = create_rev(child)
+        stack.push(next_gen)
 
 
     print(stack)
