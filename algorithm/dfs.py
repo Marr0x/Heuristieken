@@ -42,32 +42,41 @@ def create_rev(genes):
 
 def add_children_stack(children, stack):
     for child in children:
-        stack.append(child)
+        stack.append(child)  
     return stack
 
 def dfs():
 
     stack = Stack()
-    solution = [1,2,3,4,5]
-    archive = []
+    solution = [1, 2, 3, 4, 5]
+    archive = {}
 
     genome1 = Fruitfly("testgenome.txt")
     genome1 = genome1.get_genes()
+    archive["parent"] = genome1
     stack.push(genome1)
-
-    print(type(genome1))
    
-    while len(stack) < 10:
+    layer = 0
+
+    while stack:
         child = stack.pop()
-        if child == solution:
-            break;
+        layer += 1
+        child_no = 0
+       
         next_gen = create_rev(child)
 
         for child_gen in next_gen:
-            stack.push(child_gen)
+            if child_gen != solution:
+                if not child_gen in archive.values():
+                    stack.push(child_gen)
+                    child_no += 1
+                    key = "child" + str(layer) + "_" + str(child_no)
+                    archive[key] = child_gen
+            else:
+                print("hoi", child_gen, layer)
 
     print(stack)
-
+    print(archive)
 
     upperbound = len(genome1)
 
