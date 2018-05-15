@@ -1,3 +1,9 @@
+#   dfs.py
+#   Heuristics - Case: Fruit fly
+#   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
+#
+#   This file contains a reverse function and a depth first search.
+
 from classes.Stack import Stack
 from classes.Fruitfly import Fruitfly
 from classes.helpers import load
