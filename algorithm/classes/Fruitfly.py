@@ -1,3 +1,8 @@
+#	Fruitfly.py
+#	Heuristics - case: Fruit fly
+#	Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
+#
+
 from .helpers import load
 
 class Fruitfly(object):
@@ -25,9 +30,7 @@ class Fruitfly(object):
         return self.genes
 
     def print_genes(self):
-        """ Prints the genes.
-
-        """
+        """ Prints the genes. """
         print(self.genes)
 
     def __len__(self):
