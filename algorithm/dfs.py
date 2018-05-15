@@ -1,9 +1,3 @@
-#   dfs.py
-#   Heuristics - Case: Fruit fly
-#   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
-#
-#   This file contains a reverse function and a depth first search.
-
 from classes.Stack import Stack
 from classes.Fruitfly import Fruitfly
 from classes.helpers import load
@@ -61,7 +55,6 @@ def dfs():
     genome1 = genome1.get_genes()
     archive["parent"] = genome1
     stack.push(genome1)
-   
     layer = 0
 
     while stack:
@@ -104,3 +97,8 @@ def dfs():
 
 if __name__ == "__main__":
     dfs()
+
+    # genome2 = Fruitfly("genome2.txt")
+    # genome2.print_genes()
+    # child = genome2.create_rev()
+    # print(child)
