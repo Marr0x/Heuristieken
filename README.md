@@ -16,7 +16,7 @@ For more information about the case:
 
 ### Code ###
 This folder holds all the scripts, including algorithms and for loading the data.
-- Depth First Branch and bound
+
 
 ### Data ###
 This folder holds all the data used for this case, including textfiles with the genomes of the fruitfly species.
