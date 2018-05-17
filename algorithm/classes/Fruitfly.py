@@ -74,6 +74,19 @@ class Fruitfly(object):
         """
         return str(self.genes)
 
+    def path_solution(self):
+        """ Returns the path of the solution.
+        """
+        path = [self]
+
+        ancestor = self.parent
+
+        while ancestor is not None:
+            path.append(ancestor)
+            ancestor = ancestor.get_parent()
+
+        return path
+
     def rev(self, x, y):
         """ Reverses a list of genes.
 

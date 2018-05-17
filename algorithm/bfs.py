@@ -15,11 +15,13 @@ def bfs(root):
 
         for child in next_generation:
             if child == solution:
-                solved = True;
+                solved = True
+                solution_child = child
                 print('parent {}'.format(child.get_parent()))
                 print('generation {}'.format(child.get_generation()))
                 print('solution {}'.format(child))
             else:
                 queue.append(child)
 
-    print(queue)
+    # print(queue)
+    print('parent solution {}'.format(solution_child.path_solution()))
