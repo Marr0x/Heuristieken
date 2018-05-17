@@ -79,7 +79,7 @@ class Fruitfly(object):
             new_genes[x:y+1] = new_genes[y:x-1:-1]
             return new_genes
         else:
-    #         print("error1")
+            print("error1")
 
     def create_children(self):
         """ Creates children of genome.
