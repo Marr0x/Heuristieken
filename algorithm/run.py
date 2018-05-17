@@ -1,7 +1,12 @@
 from classes.Fruitfly import Fruitfly
-from numpy import np
+import numpy as np
+import bfs
 
-genome = [5,4,3,2,1]
-vlieg1 = Fruitfly(genome, 0)
+genome = [5,3,4,2,1]
+fly1 = Fruitfly(genome, 0)
 
-print(vlieg1)
+
+# print(fly1)
+
+# print(fly1.create_children())
+bfs.bfs(fly1)

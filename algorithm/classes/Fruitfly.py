@@ -15,12 +15,15 @@ class Fruitfly(object):
 
     """
 
-    def __init__(self, genome, generation, parent=None):
+    def __init__(self, genes, generation=None, parent=None):
         """ initialize with an array of genes from chosen fruitfly genome. """
 
-        self.genes = genome
+        self.genes = genes
         self.generation = generation
         self.parent = parent
+
+    def __eq__(self, other):
+        return self.genes == other.genes
 
     def get_genes(self):
         """ Getter.
@@ -30,6 +33,24 @@ class Fruitfly(object):
         """
 
         return self.genes
+
+    def get_generation(self):
+        """ Getter.
+
+        Returns:
+            Generation: integer.
+        """
+
+        return self.generation
+
+    def get_parent(self):
+        """ Getter.
+
+        Returns:
+            parent: integer.
+        """
+
+        return self.parent
 
     def print_genes(self):
         """ Prints the genes. """
@@ -72,10 +93,10 @@ class Fruitfly(object):
 
         new_genes = self.genes[:]
 
-        # if x is 0:
-        #     new_genes[:y+1] = new_genes[y::-1]
-        #     return new_genes
-        if y < len(self.genes):
+        if x is 0:
+            new_genes[:y+1] = new_genes[y::-1]
+            return new_genes
+        elif y < len(self.genes):
             new_genes[x:y+1] = new_genes[y:x-1:-1]
             return new_genes
         else:
