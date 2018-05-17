@@ -52,21 +52,21 @@ class Fruitfly(object):
         return str(self.genes)
 
     # def rev(self, x, y):
-    #     """ Reverses a list of genes.
+        # """ Reverses a list of genes.
 
-    #         Two indexes are given: start value and end value. The genome will be
-    #         reverserd from the start to end value.
-    #         If a greater value is given than the length of the genome and error
-    #         message will be given.
+        #     Two indexes are given: start value and end value. The genome will be
+        #     reverserd from the start to end value.
+        #     If a greater value is given than the length of the genome and error
+        #     message will be given.
 
-    #         Args:
-    #             self (list of integers): fruitfly genome.
-    #             x (int): Index of list where reversion should start.
-    #             y (int): Index of list where reversion should end.
+        #     Args:
+        #         self (list of integers): fruitfly genome.
+        #         x (int): Index of list where reversion should start.
+        #         y (int): Index of list where reversion should end.
 
-    #         Returns:
-    #             Genes (integer list) in new order.
-    #     """
+        #     Returns:
+        #         Genes (integer list) in new order.
+        # """
 
     #     new_genes = self.genes[:]
 

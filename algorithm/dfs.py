@@ -70,7 +70,7 @@ def dfs():
 
     genome1 = Fruitfly("testgenome.txt")
     genome1 = genome1.get_genes()
-    archive["parent"] = genome1
+    archive[str(genome1)] = "parent"
     stack.push(genome1)
     layer = 0
 
@@ -83,11 +83,11 @@ def dfs():
 
         for child_gen in next_gen:
             if child_gen != solution:
-                if not child_gen in archive.values():
+                if not str(child_gen) in archive.keys():
                     stack.push(child_gen)
                     child_no += 1
-                    key = "child" + str(layer) + "_" + str(child_no)
-                    archive[key] = child_gen
+                    value = "layer:" + str(layer) + "_" + str(child_no)
+                    archive[str(child_gen)] = value
             else:
                 print("solution found:", child_gen, layer)
 
