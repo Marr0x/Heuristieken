@@ -15,10 +15,12 @@ class Fruitfly(object):
 
     """
 
-    def __init__(self, genome_file):
+    def __init__(self, genome, generation, parent=None):
         """ initialize with an array of genes from chosen fruitfly genome. """
 
-        self.genes = load.load_genome(genome_file)
+        self.genes = genome
+        self.generation = generation
+        self.parent = parent
 
     def get_genes(self):
         """ Getter.
@@ -42,7 +44,7 @@ class Fruitfly(object):
         """
         return len(self.genes)
 
-    def __str__(self):
+    def __repr__(self):
         """ Overrides __str__() method.
 
         Returns:
@@ -51,35 +53,35 @@ class Fruitfly(object):
         """
         return str(self.genes)
 
-    # def rev(self, x, y):
-        # """ Reverses a list of genes.
+    def rev(self, x, y):
+        """ Reverses a list of genes.
 
-        #     Two indexes are given: start value and end value. The genome will be
-        #     reverserd from the start to end value.
-        #     If a greater value is given than the length of the genome and error
-        #     message will be given.
+            Two indexes are given: start value and end value. The genome will be
+            reverserd from the start to end value.
+            If a greater value is given than the length of the genome and error
+            message will be given.
 
-        #     Args:
-        #         self (list of integers): fruitfly genome.
-        #         x (int): Index of list where reversion should start.
-        #         y (int): Index of list where reversion should end.
+            Args:
+                self (list of integers): fruitfly genome.
+                x (int):  Index of list where reversion should start.
+                y (int): Index of list where reversion should end.
 
-        #     Returns:
-        #         Genes (integer list) in new order.
-        # """
+            Returns:
+                Genes (integer list) in new order.
+        """
 
-    #     new_genes = self.genes[:]
+        new_genes = self.genes[:]
 
-    #     if x is 0:
-    #         new_genes[:y+1] = new_genes[y::-1]
-    #         return new_genes
-    #     elif y < len(genes):
-    #         new_genes[x:y+1] = new_genes[y:x-1:-1]
-    #         return new_genes
-    #     else:
+        # if x is 0:
+        #     new_genes[:y+1] = new_genes[y::-1]
+        #     return new_genes
+        if y < len(self.genes):
+            new_genes[x:y+1] = new_genes[y:x-1:-1]
+            return new_genes
+        else:
     #         print("error1")
 
-    def create_rev(self):
+    def create_children(self):
         """ Creates children of genome.
 
             The children of the genome (list of integers) are created by iterating
@@ -102,8 +104,10 @@ class Fruitfly(object):
                 x = n - 1 - i
                 y = j + (n - i)
 
-                reversed_list = load.rev(self.genes, x, y)
+                reversed_list = self.rev(x, y)
 
-                children.append(reversed_list)
+                child = Fruitfly(reversed_list, self.generation + 1, self)
+
+                children.append(child)
 
         return children
