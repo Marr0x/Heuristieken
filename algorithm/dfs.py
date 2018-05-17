@@ -3,12 +3,22 @@ from classes.Fruitfly import Fruitfly
 from classes.helpers import load
 
 def rev(genes, x, y):
+    """ Reverses a list of genes.
 
-    """ reverses a list of genes
-        genes = the list of integers
-        x  = index of list where reversion should start
-        y = index of list where reversion should end
+        Two indexes are given: start value and end value. The genome will be
+        reverserd from the start to end value.
+        If a greater value is given than the length of the genome and error
+        message will be given.
+
+        Args:
+            self (list of integers): fruitfly genome.
+            x (int): Index of list where reversion should start.
+            y (int): Index of list where reversion should end.
+
+        Returns:
+            Genes (integer list) in new order.
     """
+
     new_genes = genes[:]
 
     if x is 0:
@@ -22,8 +32,18 @@ def rev(genes, x, y):
 
 
 def create_rev(genes):
+    """ Creates children of genome.
+
+        The children of the genome (list of integers) are created by iterating
+        over the genes (single integer).
+
+        Returns:
+            A list of n children (list).
+    """
+
     n = len(genes)
     children = []
+
     # iterates over genes, decreasing every time
     for i in range(n - 1, 0, -1):
 
@@ -40,12 +60,9 @@ def create_rev(genes):
 
     return children
 
-def add_children_stack(children, stack):
-    for child in children:
-        stack.append(child)  
-    return stack
 
 def dfs():
+    """ Depth-First Search (dfs): in progress. """
 
     stack = Stack()
     solution = [1, 2, 3, 4, 5]
@@ -72,33 +89,14 @@ def dfs():
                     key = "child" + str(layer) + "_" + str(child_no)
                     archive[key] = child_gen
             else:
-                print("hoi", child_gen, layer)
+                print("solution found:", child_gen, layer)
 
     print(stack)
     print(archive)
 
     upperbound = len(genome1)
 
-    # stopcriterium functie
-
-    # layer1 = create_rev(genes)
-
-    # # for child in layer1:
-    # #     stack.append(child)
-    # add_children_stack(layer1, stack)
-
-    # print(stack)
-
-    # layer2_child1 = create_rev(stack[0])
-
-    # add_children_stack(layer2_child1, stack)
-
-    # print(stack)
 
 if __name__ == "__main__":
     dfs()
 
-    # genome2 = Fruitfly("genome2.txt")
-    # genome2.print_genes()
-    # child = genome2.create_rev()
-    # print(child)

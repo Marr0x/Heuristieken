@@ -34,7 +34,7 @@ class Fruitfly(object):
         print(self.genes)
 
     def __len__(self):
-        """ Overrides len() functions
+        """ Overrides len() functions.
 
         Returns:
             The number of integers (genes) in a genome (list).
@@ -43,7 +43,7 @@ class Fruitfly(object):
         return len(self.genes)
 
     def __str__(self):
-        """ Overrides __str__() method
+        """ Overrides __str__() method.
 
         Returns:
             String representation of genes.
@@ -60,7 +60,7 @@ class Fruitfly(object):
     #         message will be given.
 
     #         Args:
-    #             self (list of integers): fruitfly genome
+    #             self (list of integers): fruitfly genome.
     #             x (int): Index of list where reversion should start.
     #             y (int): Index of list where reversion should end.
 
