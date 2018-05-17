@@ -1,6 +1,6 @@
-from classes.Stack import Stack
-from classes.Fruitfly import Fruitfly
-from classes.helpers import load
+from .classes.Stack import Stack
+from .classes.Fruitfly import Fruitfly
+from .classes.helpers import load
 
 def rev(genes, x, y):
     """ Reverses a list of genes.
@@ -78,7 +78,7 @@ def dfs():
         child = stack.pop()
         layer += 1
         child_no = 0
-       
+
         next_gen = create_rev(child)
 
         for child_gen in next_gen:
@@ -99,4 +99,3 @@ def dfs():
 
 if __name__ == "__main__":
     dfs()
-
