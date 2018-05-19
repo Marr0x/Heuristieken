@@ -95,18 +95,18 @@ class Fruitfly(object):
 
         return path
 
-    def mutationpoints(self):
+    def distancepoints(self):
 
-        mutationpoints = 0
+        distancepoints = 0
 
         for gene in self.genes:
             solution_index = gene - 1
             gene_index = self.genes.index(gene)
 
             if gene_index != solution_index:
-                mutationpoints += abs(solution_index - gene_index)
+                distancepoints += abs(solution_index - gene_index)
 
-        return mutationpoints
+        return distancepoints
 
 
     def rev(self, x, y):
