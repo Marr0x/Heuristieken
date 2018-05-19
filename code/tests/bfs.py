@@ -4,12 +4,10 @@ def bfs(root):
     """ Breadth-First Search (bfs): in progress. """
 
     # solution = Fruitfly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25])
-    solution = Fruitfly([1, 2, 3, 4, 5, 6, 7, 8])
+    solution = Fruitfly([1, 2, 3, 4, 5])
     queue = [root]
     solved = False
     generation = 0
-
-    print(queue)
 
     while not solved and generation < 8:
         genome = queue.pop(0)
@@ -21,12 +19,11 @@ def bfs(root):
             if child == solution:
                 solved = True
                 solution_child = child
-                print('parent {}'.format(child.get_parent()))
-                print('generation {}'.format(child.get_generation()))
-                print('solution {}'.format(child))
+                print('solution: {}'.format(child))
+                print('solution found in generation: {}'.format(child.get_generation()))
             else:
                 queue.append(child)
 
     # print(queue)
-    print('parent solution {}'.format(solution_child.path_solution()))
-    print(len(solution_child.path_solution()))
+    print('path: {}'.format(solution_child.path_solution()))
+    # print("length of path: {}".format(len(solution_child.path_solution()) - 1))

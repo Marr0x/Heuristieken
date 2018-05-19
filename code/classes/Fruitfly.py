@@ -3,16 +3,11 @@
 #	Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
 
-from .helpers import load
 
 class Fruitfly(object):
     """
-
-    Genome: consists of a list of integers. The Genome is loaded from a txt file.
-
+    Genome: consists of a list of integers.
     The genome is loaded by using the function load_genome from helpers.
-
-
     """
 
     def __init__(self, genes, generation=None, parent=None):
@@ -33,6 +28,19 @@ class Fruitfly(object):
         """
 
         return self.genes
+
+    def solution(self):
+        """ Gives solution genome from given genome. 
+        
+        Returns:
+            Solution genome.
+
+        """
+
+        solution = Fruitfly(sorted(self.genes))
+
+        return solution
+
 
     def get_generation(self):
         """ Getter.
@@ -86,6 +94,20 @@ class Fruitfly(object):
             ancestor = ancestor.get_parent()
 
         return path
+
+    def distancepoints(self):
+
+        distancepoints = 0
+
+        for gene in self.genes:
+            solution_index = gene - 1
+            gene_index = self.genes.index(gene)
+
+            if gene_index != solution_index:
+                distancepoints += abs(solution_index - gene_index)
+
+        return distancepoints
+
 
     def rev(self, x, y):
         """ Reverses a list of genes.
