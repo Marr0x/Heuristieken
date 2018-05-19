@@ -5,24 +5,21 @@
 #
 #	Implements algorithms to find the evolutionary path between fruit fly species.
 
-from algorithm.classes.Fruitfly import Fruitfly
+from code.classes.Fruitfly import Fruitfly
+from code import bfs_basic
+from code import dfs_basic
+from data import load_data
+import numpy as np
 
+# load fruitfly genome of length 25
+genome25 = load_data.load_genome("genome1.txt")
 
-from algorithm.classes.helpers import load
-from algorithm.classes.Stack import Stack
+# insert a genome of fruitfly and shuffle
+genome = [1, 2, 3, 4, 5]
+np.random.shuffle(genome)
+fly = Fruitfly(genome, 0)
 
-from algorithm import dfs
-
-def main ():
-
-    # genome = input("Please enter the filename with a genome \n")
-
-    # genome1 = Fruitfly(genome)
-    # genome1.print_genes()
-
-    # genome1.smallest_first_sort()
-    dfs.dfs()
-    # genome1.print_genes()
-
-if __name__ == "__main__":
-    main()
+# implement algorithms
+bfs_basic.bfs(fly)
+print("\n")
+dfs_basic.dfs(fly)
