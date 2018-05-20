@@ -6,9 +6,14 @@
 #   Implements algorithms to find the evolutionary path between fruit fly species.
 
 from .classes.Fruitfly import Fruitfly
+import numpy as np
 
-def dfs(root_genome):
-    """ Depth-First Search (dfs): in progress. """
+def dfs_random(root_genome):
+    """ Depth-First Search (dfs) Random.
+
+        Args:
+            root: genome sequence of fruitfly provided by user.
+    """
 
     print("Depth-First search")
 
@@ -21,8 +26,11 @@ def dfs(root_genome):
 
     while stack:
         genome = stack.pop()
-
+        # print("archive: {}".format(archive))
         children = genome.create_children()
+
+        # print("children: {}".format(children))
+        # np.random.shuffle(children)
 
         for child in children:
             if child != solution:
