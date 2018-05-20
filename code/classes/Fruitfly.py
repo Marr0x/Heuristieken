@@ -30,8 +30,8 @@ class Fruitfly(object):
         return self.genes
 
     def solution(self):
-        """ Gives solution genome from given genome. 
-        
+        """ Gives solution genome from given genome.
+
         Returns:
             Solution genome.
 
@@ -94,6 +94,16 @@ class Fruitfly(object):
             ancestor = ancestor.get_parent()
 
         return path
+
+    def path_length(self):
+        """ Returns the length of the path solution.
+
+            Returns:
+                length of path solution (integer).
+
+        """
+
+        return (len(self.path_solution()) - 1)
 
     def distancepoints(self):
 
