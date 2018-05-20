@@ -10,9 +10,9 @@ from code.classes.Fruitfly import Fruitfly
 from code import dfs_random
 import numpy as np
 
-# genome = [1, 2, 3, 4, 5]
-genome = [5, 4, 3, 2, 1]
-# np.random.shuffle(genome)
+genome = [1, 2, 3, 4, 5]
+# genome = [5, 4, 3, 2, 1]
+np.random.shuffle(genome)
 fly1 = Fruitfly(genome, 0)
 
 print('genome:{}'.format(fly1))

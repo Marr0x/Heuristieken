@@ -30,19 +30,21 @@ def dfs_random(root_genome):
         children = genome.create_children()
 
         # print("children: {}".format(children))
-        # np.random.shuffle(children)
+        np.random.shuffle(children)
 
+        ## TODO bijhouden welke laag. Eerste oplossing gevonden?
         for child in children:
             if child != solution:
                 if not str(child) in archive.keys():
                     stack.append(child)
-                    layer = child.get_generation()
-                    value = "layer:" + str(layer)
+                    current_layer = child.get_generation()
+                    value = "layer:" + str(current_layer)
                     archive[str(child.get_genes())] = value
+
             else:
-                layer = child.get_generation()
+                solution_layer = child.get_generation()
                 path = child.path_solution()
                 path_length = child.path_length()
-                print("solution found: {}, in layer {}, path: {}, swaps: {}".format(child, layer, path, path_length))
+                print("solution found: {}, in layer {}, path: {}, swaps: {}".format(child, solution_layer, path, path_length))
 
     # print("archive:",archive)
