@@ -1,14 +1,14 @@
-#   bfs_basic.py
+#   bfs_breakpoint.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
-#   Basic breadth-first search algorithm.
+#   Breadth-first search, pruning with breakpoints.
 
 from .classes.Fruitfly import Fruitfly
 
 def bfs(root_genome):
-    """ Breadth-First Search (bfs): the foundation.
+    """ Breadth-First Search (bfs): using breakpoints.
 
         Args:
             root: genome sequence of fruitfly provided by user.
@@ -35,7 +35,7 @@ def bfs(root_genome):
             else:
                 queue.append(child)
 
-    print("Breadth-First Search (basic)")
+    print("Breadth-First Search (breakpoint)")
     print("genome fruitfly:", root_genome)
     print("solution child:", solution_child)
     print("solution found in generation:", solution_child.get_generation())

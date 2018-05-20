@@ -7,7 +7,7 @@
 
 from code.classes.Fruitfly import Fruitfly
 from code import bfs_basic
-from code import dfs_basic
+# from code import dfs_basic
 from data import load_data
 import numpy as np
 
@@ -22,4 +22,4 @@ fly = Fruitfly(genome, 0)
 # implement algorithms
 bfs_basic.bfs(fly)
 print("\n")
-dfs_basic.dfs(fly)
+# dfs_basic.dfs(fly)

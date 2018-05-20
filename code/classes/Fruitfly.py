@@ -30,7 +30,7 @@ class Fruitfly(object):
         return self.genes
 
     def solution(self):
-        """ Gives solution genome from given genome. 
+        """ Sorts genome for a solution genome. 
         
         Returns:
             Solution genome.
@@ -96,6 +96,11 @@ class Fruitfly(object):
         return path
 
     def distancepoints(self):
+        """ Calculates the distance of the genome index and the solution index.
+        
+            Returns:
+                distancepoints.
+        """
 
         distancepoints = 0
 
@@ -108,6 +113,21 @@ class Fruitfly(object):
 
         return distancepoints
 
+    def breakpoints(self):
+        """ Calculates breakpoints of genome. Breakpoint occurs when:
+            two non-consecutive numbers.
+
+            Returns:
+                breakpoints.
+        """
+
+        breakpoints = 0
+
+        for gene in range(len(self.genes) - 1):
+            if abs(self.genes[gene] - self.genes[gene + 1]) > 1:  
+                breakpoints += 1
+
+        return breakpoints
 
     def rev(self, x, y):
         """ Reverses a list of genes.
