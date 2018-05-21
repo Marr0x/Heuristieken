@@ -19,12 +19,13 @@ def dfs_random(root_genome):
 
     stack = []
     archive = {}
+    current_layer
 
     solution = root_genome.solution()
     archive[str(root_genome)] = "parent"
     stack.append(root_genome)
 
-    while stack:
+    while current_layer < upperbound:
         genome = stack.pop()
         # print("archive: {}".format(archive))
         children = genome.create_children()

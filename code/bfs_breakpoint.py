@@ -6,6 +6,7 @@
 #   Breadth-first search, pruning with breakpoints.
 
 from .classes.Fruitfly import Fruitfly
+from heapq import nsmallest
 
 def bfs(root_genome):
     """ Breadth-First Search (bfs): using breakpoints.
@@ -22,7 +23,7 @@ def bfs(root_genome):
 
     solution = root_genome.solution()
     solved = False
-    generation = 0
+    generation = root_genome.generation
     upperbound = len(root_genome) - 1
 
     print("Breadth-First Search (breakpoint)")
@@ -41,6 +42,10 @@ def bfs(root_genome):
 
         # get current node: node with least f-value
         minimum_index = open_list.index(min(open_list))
+        # min_children = nsmallest(3, open_list)
+
+        # for min_child in min_children:
+        #     print(min_children.index(min_child))
         genome = open_list.pop(minimum_index)
         closed_list.append(genome)
         breakpoints_list.append(genome.breakpoints())
