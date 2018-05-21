@@ -9,6 +9,11 @@ from .classes.Fruitfly import Fruitfly
 
 def bfs(root_genome):
     """ Breadth-First Search (bfs): using breakpoints.
+        
+        Comment:
+            Still in progress! Ik push nu alleen de child met de minste
+            breakingpoints in closed_list. Bedoeling is om uiteindelijk
+            meerdere children met lage breakpoints erin te pushen.
 
         Args:
             root: genome sequence of fruitfly provided by user.
@@ -20,23 +25,40 @@ def bfs(root_genome):
     generation = 0
     upperbound = len(root_genome) - 1
 
-    queue = [root_genome]
-
-    # create children from root genome until a solution found
-    while not solved and generation < upperbound:
-
-        genome = queue.pop(0)
-
-        children = genome.create_children()
-        for child in children:
-            if child == solution:
-                solved = True
-                solution_child = child
-            else:
-                queue.append(child)
-
     print("Breadth-First Search (breakpoint)")
     print("genome fruitfly:", root_genome)
-    print("solution child:", solution_child)
-    print("solution found in generation:", solution_child.get_generation())
-    print("path to solution:", solution_child.path_solution())
+
+    # initialize open and closed list
+    open_list = []
+    closed_list = []
+    breakpoints_list = []
+
+    # add start node
+    open_list.append(root_genome)
+
+    #loop until you find the end
+    while not solved and generation < upperbound:
+
+        # get current node: node with least f-value
+        minimum_index = open_list.index(min(open_list))
+        genome = open_list.pop(minimum_index)
+        closed_list.append(genome)
+        breakpoints_list.append(genome.breakpoints())
+
+        # found the goal
+        if genome == solution:
+            solved = True
+            solution_child = genome
+            print("solution child:", solution_child)
+            print("solution found in generation:", solution_child.get_generation())
+            print("path to solution:", solution_child.path_solution())
+
+        # generate children
+        children = genome.create_children()
+
+        for child in children:
+            open_list.append(child)
+
+    # dit laat zien hoe breakpoints minder worden (Later verwijderen!!)
+    print("breakpoint_list:", breakpoints_list)
+
