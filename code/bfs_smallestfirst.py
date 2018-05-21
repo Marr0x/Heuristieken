@@ -1,9 +1,9 @@
-#   bfs_breakpoint.py
+#   bfs_smallestfirst.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
-#   Breadth-first search, pruning with breakpoints.
+#   Breadth-first search that select smallest value in genome list.
 
 from .classes.Fruitfly import Fruitfly
 
