@@ -12,7 +12,7 @@ class Fruitfly(object):
     The genome is loaded by using the function load_genome.
     """
 
-    def __init__(self, genes, generation=None, parent=None):
+    def __init__(self, genes, generation=0, parent=None):
         """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
@@ -26,6 +26,7 @@ class Fruitfly(object):
 
     def __lt__(self, other):
         """ Overrides less-than comparison. """
+
         return self.genes < other.genes
 
     def get_genes(self):
