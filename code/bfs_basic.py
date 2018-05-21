@@ -27,12 +27,13 @@ def bfs(root_genome):
 
         genome = queue.pop(0)
 
+        if genome == solution:
+            solved = True
+            solution_child = genome
+
         children = genome.create_children()
+
         for child in children:
-            if child == solution:
-                solved = True
-                solution_child = child
-            else:
                 queue.append(child)
 
     print("Breadth-First Search (basic)")

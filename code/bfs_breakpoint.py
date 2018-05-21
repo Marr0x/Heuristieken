@@ -61,5 +61,3 @@ def bfs(root_genome):
 
     # dit laat zien hoe breakpoints minder worden (Later verwijderen!!)
     print("breakpoint_list:", breakpoints_list)
-
-

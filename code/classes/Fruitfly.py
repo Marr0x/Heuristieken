@@ -24,6 +24,10 @@ class Fruitfly(object):
 
         return self.genes == other.genes
 
+    def __lt__(self, other):
+        """ Overrides less-than comparison. """
+        return self.genes < other.genes
+
     def get_genes(self):
         """ Getter.
 
@@ -34,8 +38,8 @@ class Fruitfly(object):
         return self.genes
 
     def solution(self):
-        """ Sorts genome for a solution genome.
-
+        """ Sorts genome for a solution genome. 
+        
         Returns:
             Solution genome.
 
@@ -99,19 +103,9 @@ class Fruitfly(object):
 
         return path
 
-    def path_length(self):
-        """ Returns the length of the path solution.
-
-            Returns:
-                length of path solution (integer).
-
-        """
-
-        return (len(self.path_solution()) - 1)
-
     def distancepoints(self):
         """ Calculates the distance of the genome index and the solution index.
-
+        
             Returns:
                 distancepoints.
         """
@@ -138,7 +132,7 @@ class Fruitfly(object):
         breakpoints = 0
 
         for gene in range(len(self.genes) - 1):
-            if abs(self.genes[gene] - self.genes[gene + 1]) > 1:
+            if abs(self.genes[gene] - self.genes[gene + 1]) > 1:  
                 breakpoints += 1
 
         return breakpoints
@@ -201,3 +195,5 @@ class Fruitfly(object):
                 children.append(child)
 
         return children
+
+    breakpoint = property(breakpoints)
