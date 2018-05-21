@@ -1,23 +1,27 @@
 #	Fruitfly.py
-#	Heuristics - case: Fruit fly
-#	Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
+#   Heuristics - Case: Fruit fly
+#   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
+#
+#   The class Fruitfly contains all the methods needed for the algorithms.
 
 
 class Fruitfly(object):
     """
     Genome: consists of a list of integers.
-    The genome is loaded by using the function load_genome from helpers.
+    The genome is loaded by using the function load_genome.
     """
 
     def __init__(self, genes, generation=None, parent=None):
-        """ initialize with an array of genes from chosen fruitfly genome. """
+        """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
 
     def __eq__(self, other):
+        """ Compares whether gene sequences are the same. """
+
         return self.genes == other.genes
 
     def get_genes(self):
@@ -124,7 +128,7 @@ class Fruitfly(object):
         return distancepoints
 
     def breakpoints(self):
-        """ Calculates breakpoints of genome. Breakpoint occurs when:
+        """ Calculates breakpoints of genome. Breakpoint occurs between
             two non-consecutive numbers.
 
             Returns:
@@ -165,7 +169,7 @@ class Fruitfly(object):
             new_genes[x:y+1] = new_genes[y:x-1:-1]
             return new_genes
         else:
-            print("error1")
+            print("error: start or end index invalid")
 
     def create_children(self):
         """ Creates children of genome.
