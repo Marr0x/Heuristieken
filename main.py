@@ -18,10 +18,10 @@ genome25 = load_data.load_genome("genome1.txt")
 # insert a genome of fruitfly and shuffle
 genome = [1, 2, 3, 4, 5]
 np.random.shuffle(genome)
-fly = Fruitfly(genome, 0)
+fly = Fruitfly(genome25, 0)
 
 # implement algorithms
-bfs_basic.bfs(fly)
+# bfs_basic.bfs(fly)
 print("\n")
 bfs_breakpoint.bfs(fly)
 # dfs_basic.dfs(fly)
