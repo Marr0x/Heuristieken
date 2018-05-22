@@ -27,9 +27,15 @@ class Fruitfly(object):
         return self.genes == other.genes
 
     def __lt__(self, other):
-        """ Overrides less-than comparison. """
+        """ Overrides less-than comparison."""
 
-        return self.genes < other.genes
+        return self.breakpoint < other.breakpoint
+
+
+    # def __cmp__(self, other):
+    #     """ Overrides comparison. """
+
+    #     return cmp(self.breakpoint, other.breakpoint)
 
     def get_genes(self):
         """ Getter.
