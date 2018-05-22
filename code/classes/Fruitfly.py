@@ -18,11 +18,7 @@ class Fruitfly(object):
         self.genes = genes
         self.generation = generation
         self.parent = parent
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 83512676ce2409bc91ec2e19812aa52099d68cbb
         self.breakpoint = self.breakpoints()
 
     def __eq__(self, other):
@@ -219,7 +215,3 @@ class Fruitfly(object):
                 children.append(child)
 
         return children
-<<<<<<< HEAD
-=======
-
->>>>>>> 83512676ce2409bc91ec2e19812aa52099d68cbb

@@ -17,9 +17,4 @@ fly = Fruitfly(genome, 0)
 # print(fly)
 # print("breakpoints:", fly.breakpoints())
 
-<<<<<<< HEAD
-bfs_smallestfirst.bfs(fly)
-=======
 bfs_breakpoint.bfs(fly)
-
->>>>>>> 83512676ce2409bc91ec2e19812aa52099d68cbb
