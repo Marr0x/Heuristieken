@@ -133,7 +133,7 @@ class Fruitfly(object):
 
         return distancepoints
 
-    def breakpoints(self):
+    def breakpoints(self, genome_list):
         """ Calculates breakpoints of genome. Breakpoint occurs between
             two non-consecutive numbers.
 
@@ -143,10 +143,9 @@ class Fruitfly(object):
 
         breakpoints = 0
 
-        for gene in range(len(self.genes) - 1):
-            if abs(self.genes[gene] - self.genes[gene + 1]) > 1:
+        for gene in range(len(genome_list) - 1):
+            if abs(genome_list[gene] - genome_list[gene + 1]) > 1:
                 breakpoints += 1
-
 
         return breakpoints
 
@@ -202,9 +201,8 @@ class Fruitfly(object):
                 y = j + (n - i)
 
                 reversed_list = self.rev(x, y)
-                breakpoint_child = reversed_list.breakpoints()
 
-                child = Fruitfly(reversed_list, self.generation + 1, self, breakpoint_child)
+                child = Fruitfly(reversed_list, self.generation + 1, self, self.breakpoints(reversed_list))
 
                 children.append(child)
 
