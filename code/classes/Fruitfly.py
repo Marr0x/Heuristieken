@@ -12,13 +12,14 @@ class Fruitfly(object):
     The genome is loaded by using the function load_genome.
     """
 
-    def __init__(self, genes, generation=0, parent=None, breakpoint=None):
+    def __init__(self, genes, generation=0, parent=None):
         """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
-        self.breakpoint = breakpoint
+        
+        self.breakpoint = self.breakpoints()
 
     def __eq__(self, other):
         """ Compares whether gene sequences are the same. """
@@ -133,7 +134,7 @@ class Fruitfly(object):
 
         return distancepoints
 
-    def breakpoints(self, genome_list):
+    def breakpoints(self):
         """ Calculates breakpoints of genome. Breakpoint occurs between
             two non-consecutive numbers.
 
@@ -142,6 +143,7 @@ class Fruitfly(object):
         """
 
         breakpoints = 0
+        genome_list = self.genes
 
         for gene in range(len(genome_list) - 1):
             if abs(genome_list[gene] - genome_list[gene + 1]) > 1:
@@ -202,10 +204,9 @@ class Fruitfly(object):
 
                 reversed_list = self.rev(x, y)
 
-                child = Fruitfly(reversed_list, self.generation + 1, self, self.breakpoints(reversed_list))
+                child = Fruitfly(reversed_list, self.generation + 1, self)
 
                 children.append(child)
 
         return children
 
-    breakpoints = property(breakpoints)
