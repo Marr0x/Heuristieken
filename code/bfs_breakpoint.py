@@ -1,14 +1,17 @@
-#   bfs_smallestfirst.py
+#   bfs_breakpoint.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
-#   Breadth-first search that select smallest value in genome list.
+#   Breadth-first search, pruning with breakpoints.
 
 from .classes.Fruitfly import Fruitfly
 
 def bfs(root_genome):
-    """ Breadth-First Search (bfs): selects smallest
+    """ Breadth-First Search (bfs): selects fruitflies genomes with least breakpoints.
+        
+        Comment: Werkt niet. Waar ik tegen aanloop: breakpoint moet attr worden
+        van fruitfly... Waardoor je telkens de genomen met minste breakpoints selecteert? 
 
         Args:
             root: genome sequence of fruitfly provided by user.
@@ -17,8 +20,10 @@ def bfs(root_genome):
 
     solution = root_genome.solution()
     solved = False
+    generation = root_genome.generation
+    upperbound = len(root_genome) - 1
 
-    print("Breadth-First Search (smallest first)")
+    print("Breadth-First Search (breakpoints)")
     print("genome fruitfly:", root_genome)
 
     queue = []
@@ -28,21 +33,19 @@ def bfs(root_genome):
     queue.append(root_genome)
 
     #loop until you find goal node
-    while not solved:
+    while not solved and generation < upperbound:
 
-        # get current node: node with smallest value
-        minimum_index = queue.index(min(queue))
-        genome = queue.pop(minimum_index)
+        # get current node: node with least breakpoints
+        # hoe....?
+        genome = queue.pop(0)
 
         # found the goal
         if genome == solution:
             solved = True
             solution_child = genome
-
             print("solution child:", solution_child)
             print("solution found in generation:", solution_child.get_generation())
             print("path to solution:", solution_child.path_solution())
-
 
         # generate children
         children = genome.create_children()
@@ -50,4 +53,3 @@ def bfs(root_genome):
         for child in children:
             queue.append(child)
             generation = child.get_generation()
-
