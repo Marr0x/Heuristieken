@@ -18,3 +18,4 @@ fly = Fruitfly(genome, 0)
 # print("breakpoints:", fly.breakpoints())
 
 bfs_smallestfirst.bfs(fly)
+

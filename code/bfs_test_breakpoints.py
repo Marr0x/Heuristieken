@@ -48,5 +48,12 @@ def bfs(root_genome):
         children = genome.create_children()
 
         for child in children:
+            child.breakpoints()
+            print("breakpoints", child.breakpoints())
             queue.append(child)
             generation = child.get_generation()
+
+
+
+
+

@@ -11,7 +11,7 @@ from code.classes.Fruitfly import Fruitfly
 from code import dfs_upperbound
 import numpy as np
 
-genome = [1, 2, 3, 4, 5, 7, 8, 9, 10]
+genome = [23, 1, 2, 11, 24, 22, 19, 6, 10, 7, 25, 20, 5, 8, 18, 12, 13, 14, 15, 16, 17, 21, 3, 4, 9]
 # genome = [5, 4, 3, 2, 1]
 # genome = [2, 1, 4, 5, 3]
 np.random.shuffle(genome)
