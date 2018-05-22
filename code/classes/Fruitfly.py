@@ -12,13 +12,13 @@ class Fruitfly(object):
     The genome is loaded by using the function load_genome.
     """
 
-    def __init__(self, genes, generation=0, parent=None, breakpoint=None):
+    def __init__(self, genes, generation=0, parent=None):
         """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
-        self.breakpoint = breakpoint
+        self.breakpoint = self.breakpoints()
 
     def __eq__(self, other):
         """ Compares whether gene sequences are the same. """
@@ -204,7 +204,7 @@ class Fruitfly(object):
                 reversed_list = self.rev(x, y)
                 breakpoint_child = reversed_list.breakpoints()
 
-                child = Fruitfly(reversed_list, self.generation + 1, self, breakpoint_child)
+                child = Fruitfly(reversed_list, self.generation + 1, self)
 
                 children.append(child)
 
