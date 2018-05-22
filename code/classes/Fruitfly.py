@@ -18,7 +18,11 @@ class Fruitfly(object):
         self.genes = genes
         self.generation = generation
         self.parent = parent
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 83512676ce2409bc91ec2e19812aa52099d68cbb
         self.breakpoint = self.breakpoints()
 
     def __eq__(self, other):
@@ -27,9 +31,15 @@ class Fruitfly(object):
         return self.genes == other.genes
 
     def __lt__(self, other):
-        """ Overrides less-than comparison. """
+        """ Overrides less-than comparison."""
 
-        return self.genes < other.genes
+        return self.breakpoint < other.breakpoint
+
+
+    # def __cmp__(self, other):
+    #     """ Overrides comparison. """
+
+    #     return cmp(self.breakpoint, other.breakpoint)
 
     def get_genes(self):
         """ Getter.
@@ -143,11 +153,11 @@ class Fruitfly(object):
         """
 
         breakpoints = 0
+        genome_list = self.genes
 
-        for gene in range(len(self.genes) - 1):
-            if abs(self.genes[gene] - self.genes[gene + 1]) > 1:
+        for gene in range(len(genome_list) - 1):
+            if abs(genome_list[gene] - genome_list[gene + 1]) > 1:
                 breakpoints += 1
-
 
         return breakpoints
 
@@ -203,10 +213,13 @@ class Fruitfly(object):
                 y = j + (n - i)
 
                 reversed_list = self.rev(x, y)
-                breakpoint_child = reversed_list.breakpoints()
 
                 child = Fruitfly(reversed_list, self.generation + 1, self)
 
                 children.append(child)
 
         return children
+<<<<<<< HEAD
+=======
+
+>>>>>>> 83512676ce2409bc91ec2e19812aa52099d68cbb

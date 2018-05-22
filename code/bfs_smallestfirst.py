@@ -3,12 +3,12 @@
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
-#   Breadth-first search that select smallest value in genome list.
+#   Best-first search that select smallest value in genome list.
 
 from .classes.Fruitfly import Fruitfly
 
 def bfs(root_genome):
-    """ Breadth-First Search (bfs): selects smallest
+    """ Best-First Search (bfs): selects smallest
 
         Args:
             root: genome sequence of fruitfly provided by user.
@@ -18,7 +18,7 @@ def bfs(root_genome):
     solution = root_genome.solution()
     solved = False
 
-    print("Breadth-First Search (smallest first)")
+    print("Best-First Search (smallest first)")
     print("genome fruitfly:", root_genome)
 
     queue = []

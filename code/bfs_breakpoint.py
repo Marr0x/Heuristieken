@@ -3,15 +3,14 @@
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
-#   Breadth-first search, pruning with breakpoints.
+#   Best-first search with breakpoints.
 
 from .classes.Fruitfly import Fruitfly
+import heapq
+
 
 def bfs(root_genome):
-    """ Breadth-First Search (bfs): selects fruitflies genomes with least breakpoints.
-        
-        Comment: Werkt niet. Waar ik tegen aanloop: breakpoint moet attr worden
-        van fruitfly... Waardoor je telkens de genomen met minste breakpoints selecteert? 
+    """ Best-First Search (bfs): selects fruitflies genomes with least breakpoints.
 
         Args:
             root: genome sequence of fruitfly provided by user.
@@ -20,10 +19,8 @@ def bfs(root_genome):
 
     solution = root_genome.solution()
     solved = False
-    generation = root_genome.generation
-    upperbound = len(root_genome) - 1
 
-    print("Breadth-First Search (breakpoints)")
+    print("Best-First Search (breakpoints)")
     print("genome fruitfly:", root_genome)
 
     queue = []
@@ -33,11 +30,10 @@ def bfs(root_genome):
     queue.append(root_genome)
 
     #loop until you find goal node
-    while not solved and generation < upperbound:
+    while not solved:
 
         # get current node: node with least breakpoints
-        # hoe....?
-        genome = queue.pop(0)
+        genome = heapq.heappop(queue)
 
         # found the goal
         if genome == solution:
@@ -51,5 +47,6 @@ def bfs(root_genome):
         children = genome.create_children()
 
         for child in children:
-            queue.append(child)
+            heapq.heappush(queue, child)
+            print(queue)
             generation = child.get_generation()
