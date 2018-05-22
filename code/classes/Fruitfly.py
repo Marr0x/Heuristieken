@@ -207,4 +207,4 @@ class Fruitfly(object):
 
         return children
 
-    breakpoint = property(breakpoints)
+    breakpoints = property(breakpoints)
