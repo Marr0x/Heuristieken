@@ -11,7 +11,6 @@ import numpy as np
 def dfs_upperbound(root_genome):
     """ Depth-First Search (dfs) Random.
 
-    This algorithm takes a
         Args:
             root: genome sequence of fruitfly provided by user.
     """
@@ -33,10 +32,18 @@ def dfs_upperbound(root_genome):
 
         if genome_generation < upperbound:
             children = genome.create_children()
+            breakpoints = []
 
-            np.random.shuffle(children)
+            # np.random.shuffle(children)
 
             for child in children:
+                breakpoints.append(child.breakpoints())
+
+            for child in children:
+
+
+            for child in children:
+                # print("child: {}, breaking points: {}".format(child, child.breakpoints()))
                 if child != solution:
                     if not str(child) in archive.keys():
                         stack.append(child)
