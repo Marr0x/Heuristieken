@@ -7,6 +7,7 @@
 
 from .classes.Fruitfly import Fruitfly
 
+
 def bfs(root_genome):
     """ Breadth-First Search (bfs): the foundation.
 
