@@ -26,6 +26,9 @@ def astar(root_genome):
 
         node_successor = node_current.create_children()
 
+        if node_successor in open_list:
+            if node_successor.generation <= node_succes 
+
 
 
 

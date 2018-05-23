@@ -6,17 +6,16 @@
 #   Tests for algorithms!
 
 from code.classes.Fruitfly import Fruitfly
-from code import bfs_breakpoint
-from code import astar
+from code import best_first_search
+
 import numpy as np
 
 genome = [23, 1, 2, 11, 24, 22, 19, 6, 10, 7, 25, 20, 5, 8, 18, 12, 13, 14, 15, 16, 17, 21, 3, 4, 9]
 # genome  = [1,2,3,4,5]
-# np.random.shuffle(genome)
+np.random.shuffle(genome)
 fly = Fruitfly(genome, 0)
 
-print("fly:", fly)
-# print("breakpoints:", fly.breakpoints())
 
-bfs_breakpoint.bfs(fly)
-# astar.astar(fly)
+best_first_search.bfs(fly, Fruitfly.breakpoint_compare)
+best_first_search.bfs(fly, Fruitfly.distancepoint_compare)
+best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)

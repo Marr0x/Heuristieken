@@ -6,26 +6,23 @@
 #   The class Fruitfly contains all the methods needed for the algorithms.
 
 
-# dingetje = Fruitfly([1,2,3], func=Fruitfly.distancepointcompare)
-
 class Fruitfly(object):
     """
     Genome: consists of a list of integers.
     The genome is loaded by using the function load_genome.
     """
 
-    def __init__(self, genes, generation=0, parent=None, func=None):
+    def __init__(self, genes, generation=0, parent=None, compare_func=None):
         """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
 
-        if not func:
-            self.func = self.breakpointcompare
+        if not compare_func:
+            self.compare_func = self.breakpoint_compare
         else:
-            self.func = func
-
+            self.compare_func = compare_func
 
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
@@ -38,19 +35,16 @@ class Fruitfly(object):
     def __lt__(self, other):
         """ Overrides less-than comparison."""
 
-        return self.func(other)
+        return self.compare_func(self, other)
 
-
-    def breakpointcompare(self, other):
+    def breakpoint_compare(self, other):
         return self.breakpoint < other.breakpoint
 
-    def distancepointcompare(self, other):
-        return self.distance < other.distance
+    def distancepoint_compare(self, other):
+        return self.distancepoint < other.distancepoint
 
-    # def __cmp__(self, other):
-    #     """ Overrides comparison. """
-
-    #     return cmp(self.breakpoint, other.breakpoint)
+    def combinationpoint_compare(self, other):
+        return self.breakpoint + self.distancepoint < other.breakpoint + other.distancepoint
 
     def get_genes(self):
         """ Getter.
@@ -121,8 +115,8 @@ class Fruitfly(object):
 
         ancestor = self.parent
 
-        while ancestor is not None:
-            path.append(ancestor)
+        while ancestor:
+            path.insert(0, ancestor)
             ancestor = ancestor.get_parent()
 
         return path
@@ -200,7 +194,7 @@ class Fruitfly(object):
         else:
             print("error: start or end index invalid")
 
-    def create_children(self):
+    def create_children(self, compare_function):
         """ Creates children of genome.
 
             The children of the genome (list of integers) are created by iterating
@@ -225,7 +219,7 @@ class Fruitfly(object):
 
                 reversed_list = self.rev(x, y)
 
-                child = Fruitfly(reversed_list, self.generation + 1, self)
+                child = Fruitfly(reversed_list, self.generation + 1, self, compare_function)
 
                 children.append(child)
 
