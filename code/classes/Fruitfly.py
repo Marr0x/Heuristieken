@@ -1,19 +1,34 @@
-#	Fruitfly.py
+#   Fruitfly.py
 #
 #   Heuristics - Case: Fruit fly
-#   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
+#   Authors: Mercylyn Wiemer (10749306),
+#            Shan Shan Huang (10768793),
+#            Marwa Ahmed (10747141)
 #
-#   The class Fruitfly contains all the methods needed for the algorithms.
+#   The Fruitfly class contains all the attributes and methods needed to find
+#   the evolutionary path between fruitfly species.
 
 
 class Fruitfly(object):
-    """
-    Genome: consists of a list of integers.
-    The genome is loaded by using the function load_genome.
+    """ Contains attributes and methods needed to find the evolutionary path
+        between fruitfly species.
+
     """
 
     def __init__(self, genes, generation=0, parent=None, points_function=None):
-        """ Initialize with an array of genes from chosen fruitfly genome. """
+        """ Initializes a fruitfly.
+
+            Args:
+                genes: List of integers that represent a fruitfly genome.
+                generation: Integer that shows in which generation fruitfly
+                    child is made.
+                parent: Fruitfly that is a parent of a fruitfly child.
+                points_function: Compares mutationpoints given to a fruitfly
+                    genome. Consist of breakpoints, distancepoints, and a
+                    combination of both. Default is set on breakpoints when no
+                    points function is given.
+
+        """
 
         self.genes = genes
         self.generation = generation
@@ -27,115 +42,29 @@ class Fruitfly(object):
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
 
-    def __eq__(self, other):
-        """ Compares whether gene sequences are the same. """
-
-        return self.genes == other.genes
-
-    def __lt__(self, other):
-        """ Overrides less-than comparison."""
-
-        return self.points_function(self, other)
-
-    def breakpoint_compare(self, other):
-        return self.breakpoint < other.breakpoint
-
-    def distancepoint_compare(self, other):
-        return self.distancepoint < other.distancepoint
-
-    def combinationpoint_compare(self, other):
-        return self.breakpoint + self.distancepoint < other.breakpoint + other.distancepoint
-
-    def get_genes(self):
-        """ Getter.
-
-        Returns:
-            Genes: list of integers.
-        """
-
-        return self.genes
-
-    def solution(self):
-        """ Sorts genome for a solution genome.
-
-        Returns:
-            Solution genome.
-
-        """
-
-        solution = Fruitfly(sorted(self.genes))
-
-        return solution
-
-
-    def get_generation(self):
-        """ Getter.
-
-        Returns:
-            Generation: integer.
-        """
-
-        return self.generation
-
-    def get_parent(self):
-        """ Getter.
-
-        Returns:
-            parent: integer.
-        """
-
-        return self.parent
-
-    def print_genes(self):
-        """ Prints the genes. """
-        print(self.genes)
-
-    def __len__(self):
-        """ Overrides len() functions.
-
-        Returns:
-            The number of integers (genes) in a genome (list).
-
-        """
-        return len(self.genes)
-
-    def __repr__(self):
-        """ Overrides __str__() method.
-
-        Returns:
-            String representation of genes.
-
-        """
-        return str(self.genes)
-
-    def path_solution(self):
-        """ Returns the path of the solution.
-        """
-        path = [self]
-
-        ancestor = self.parent
-
-        while ancestor:
-            path.insert(0, ancestor)
-            ancestor = ancestor.get_parent()
-
-        return path
-
-    def path_length(self):
-        """ Returns the length of the path solution.
+    def breakpoints(self):
+        """ Calculates the sum of the breakpoints in a genome. A breakpoint
+            is defined as a point where there are two non-consecutive numbers.
 
             Returns:
-                length of path solution (integer).
-
+                The total breakpoints of a genome: integer.
         """
 
-        return (len(self.path_solution()) - 1)
+        breakpoints = 0
+        genome_list = self.genes
+
+        for gene in range(len(genome_list) - 1):
+            if abs(genome_list[gene] - genome_list[gene + 1]) > 1:
+                breakpoints += 1
+
+        return breakpoints
 
     def distancepoints(self):
-        """ Calculates the distance of the genome index and the solution index.
+        """ Calculates the sum of the distances between a gene in a fruitfly
+            genome and the same gene in the solution genome.
 
             Returns:
-                distancepoints.
+                The total distancepoints of a genome: integer.
         """
 
         distancepoints = 0
@@ -149,38 +78,124 @@ class Fruitfly(object):
 
         return distancepoints
 
-    def breakpoints(self):
-        """ Calculates breakpoints of genome. Breakpoint occurs between
-            two non-consecutive numbers.
+    def __lt__(self, other):
+        """ Overrides less-than comparison to compare mutationpoints.
 
             Returns:
-                breakpoints.
+                A points function that compares either breakpoints, distance-
+                points or a combination of both.
+
         """
 
-        breakpoints = 0
-        genome_list = self.genes
+        return self.points_function(self, other)
 
-        for gene in range(len(genome_list) - 1):
-            if abs(genome_list[gene] - genome_list[gene + 1]) > 1:
-                breakpoints += 1
+    def breakpoint_compare(self, other):
+        """ Compares amount of breakpoints between fruitflies.
 
-        return breakpoints
+            Returns:
+                A boolean value.
+
+        """
+
+        return self.breakpoint < other.breakpoint
+
+    def distancepoint_compare(self, other):
+        """ Compares amount of distancepoints between fruitflies.
+
+            Returns:
+                A boolean value.
+
+        """
+
+        return self.distancepoint < other.distancepoint
+
+    def combinationpoint_compare(self, other):
+        """ Compares amount of breakpoints and distancepoints between fruitflies.
+
+            Returns:
+                A boolean value.
+        """
+
+        return self.breakpoint + self.distancepoint < other.breakpoint
+        + other.distancepoint
+
+    def get_genes(self):
+        """ Gets fruitfly genes.
+
+        Returns:
+            Genes: list of integers.
+
+        """
+
+        return self.genes
+
+    def get_generation(self):
+        """ Gets generation of fruitfly child.
+
+        Returns:
+            Generation: integer.
+
+        """
+
+        return self.generation
+
+    def get_parent(self):
+        """ Gets parent of fruitfly child.
+
+        Returns:
+            Parent: fruitfly.
+
+        """
+
+        return self.parent
+
+    def print_genes(self):
+        """ Prints fruitfly genes. """
+
+        print(self.genes)
+
+    def __eq__(self, other):
+        """ Overrides equality operator to compare genes of fruitfly.
+
+            Returns:
+                True if fruitfly genes are the same, False otherwise.
+
+        """
+
+        return self.genes == other.genes
+
+    def __len__(self):
+        """ Overrides len() functions.
+
+        Returns:
+            The number of genes (integers) in a genome (list).
+
+        """
+        return len(self.genes)
+
+    def __repr__(self):
+        """ Overrides __reprr__() method.
+
+        Returns:
+            String representation of genes.
+
+        """
+        return str(self.genes)
 
     def rev(self, x, y):
         """ Reverses a list of genes.
 
-            Two indexes are given: start value and end value. The genome will be
-            reverserd from the start to end value.
+            Two indexes are given: start value and end value. The genome will
+            be reverserd from the start to end value.
             If a greater value is given than the length of the genome and error
             message will be given.
 
             Args:
-                self (list of integers): fruitfly genome.
                 x (int):  Index of list where reversion should start.
                 y (int): Index of list where reversion should end.
 
             Returns:
-                Genes (integer list) in new order.
+                Genes in new order: list of integers.
         """
 
         new_genes = self.genes[:]
@@ -197,30 +212,66 @@ class Fruitfly(object):
     def create_children(self, compare_function):
         """ Creates children of genome.
 
-            The children of the genome (list of integers) are created by iterating
-            over the genes (single integer).
+            The children of the genome are created by iterating over the parent
+            fruitfly, making all possible reversions.
 
             Returns:
-                A list of n children (list).
+                Children: list of fruitfly children.
         """
 
         n = len(self.genes)
         children = []
 
-        # iterates over genes, decreasing every time
         for i in range(n - 1, 0, -1):
 
-            # x is the index of where the reversion starts
-            # y is the index of where the reversion ends
             for j in range(0, i):
 
-                x = n - 1 - i
-                y = j + (n - i)
+                start_rev = n - 1 - i
+                end_rev = j + (n - i)
 
-                reversed_list = self.rev(x, y)
+                reversed_list = self.rev(start_rev, end_rev)
 
                 child = Fruitfly(reversed_list, self.generation + 1, self, compare_function)
 
                 children.append(child)
 
         return children
+
+    def solution(self):
+        """ Sorts fruitfly genes.
+
+        Returns:
+            solution genome: sorted list of integers.
+
+        """
+
+        solution = Fruitfly(sorted(self.genes))
+
+        return solution
+
+    def path_solution(self):
+        """ Shows the path/ the series of mutations from a fruitfly genome
+            to the solution.
+
+        Returns:
+            The path of the solution: list of fruitflies.
+
+        """
+        path = [self]
+        ancestor = self.parent
+
+        while ancestor:
+            path.insert(0, ancestor)
+            ancestor = ancestor.get_parent()
+
+        return path
+
+    def path_length(self):
+        """ Gets the length of the path solution.
+
+            Returns:
+                Length of path solution: integer.
+
+        """
+
+        return (len(self.path_solution()) - 1)

@@ -52,7 +52,6 @@ def bfs(root_genome, compare_function=None):
         if genome == solution:
             solved = True
             solution_child = genome
-
             print("Solution found in generation: ",
                   solution_child.get_generation())
 
