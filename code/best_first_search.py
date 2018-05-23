@@ -11,6 +11,7 @@
 
 from .classes.Fruitfly import Fruitfly
 import heapq
+import csv
 
 
 def bfs(root_genome, points_function=None):
@@ -42,6 +43,7 @@ def bfs(root_genome, points_function=None):
 
     queue = []
     queue.append(root_genome)
+    data = []
 
     while not solved:
 
@@ -55,6 +57,11 @@ def bfs(root_genome, points_function=None):
 
             print("Solution found in generation: ",
                   solution_child.get_generation())
+            
+            # 
+            data.append(solution_child.get_generation())
+            data.append(solution_child.get_parent())
+            print('data',data)
 
             path = solution_child.path_solution()
             print("Path to solution: ")
@@ -67,3 +74,12 @@ def bfs(root_genome, points_function=None):
             children = genome.create_children(points_function)
             for child in children:
                 heapq.heappush(queue, child)
+
+
+
+    # add data for experiment to csv file
+    # with open('experiment.csv', 'w') as write_file:
+    #     experiment_data = csv.writer(write_file)
+    #     experiment_data.writerows(data)
+
+    # write_file.close()
