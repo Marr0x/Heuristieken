@@ -20,6 +20,7 @@ class Fruitfly(object):
         self.parent = parent
 
         self.breakpoint = self.breakpoints()
+        self.distancepoint = self.distancepoints()
 
     def __eq__(self, other):
         """ Compares whether gene sequences are the same. """
@@ -29,7 +30,7 @@ class Fruitfly(object):
     def __lt__(self, other):
         """ Overrides less-than comparison."""
 
-        return self.breakpoint < other.breakpoint
+        return self.breakpoint + self.distancepoint < other.breakpoint + other.distancepoint
 
 
     # def __cmp__(self, other):
