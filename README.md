@@ -13,10 +13,13 @@ For more information about the case:
 
 ### Requirements ###
 - Python 3.x
+- Numpy
 
 ### Code ###
-This folder holds all the scripts, including algorithms and for loading the data.
-
+This folder holds all the scripts: algorithms and classes.
+- Classes: Fruitfly Class
+- Best-first Search: using breakpoints, distancepoints, and a combination of both.
+- Depth-first Search with upperbound: works on small genomes only for now. (Archive too big)
 
 ### Data ###
 This folder holds all the data used for this case, including textfiles with the genomes of the fruitfly species.
