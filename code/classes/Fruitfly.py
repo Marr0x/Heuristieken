@@ -6,18 +6,26 @@
 #   The class Fruitfly contains all the methods needed for the algorithms.
 
 
+# dingetje = Fruitfly([1,2,3], func=Fruitfly.distancepointcompare)
+
 class Fruitfly(object):
     """
     Genome: consists of a list of integers.
     The genome is loaded by using the function load_genome.
     """
 
-    def __init__(self, genes, generation=0, parent=None):
+    def __init__(self, genes, generation=0, parent=None, func=None):
         """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
+
+        if not func:
+            self.func = self.breakpointcompare
+        else:
+            self.func = func
+
 
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
@@ -30,8 +38,14 @@ class Fruitfly(object):
     def __lt__(self, other):
         """ Overrides less-than comparison."""
 
-        return self.breakpoint + self.distancepoint < other.breakpoint + other.distancepoint
+        return self.func(other)
 
+
+    def breakpointcompare(self, other):
+        return self.breakpoint < other.breakpoint
+
+    def distancepointcompare(self, other):
+        return self.distance < other.distance
 
     # def __cmp__(self, other):
     #     """ Overrides comparison. """
