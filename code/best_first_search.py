@@ -13,24 +13,24 @@ from .classes.Fruitfly import Fruitfly
 import heapq
 
 
-def bfs(root_genome, compare_function=None):
+def bfs(root_genome, points_function=None):
     """ Best-First Search (bfs): Searches for series of mutations that changed
         the genome of one fruitfly species to the other one.
 
         Args:
             root_genome: The start genome sequence of a fruitfly.
-            compare_function: Selects "best" fruitfly child based on
+            points_function: Selects "best" fruitfly child based on
                               breakpoints, distance points, or a combination of
                               both. Default is set on breakpoints.
 
     """
 
-    if not compare_function:
-        compare_function = Fruitfly.breakpoint_compare
+    if not points_function:
+        points_function = Fruitfly.breakpoint_compare
 
-    if compare_function == Fruitfly.breakpoint_compare:
+    if points_function == Fruitfly.breakpoint_compare:
         print("Best-First Search: Breakpoints")
-    elif compare_function == Fruitfly.distancepoint_compare:
+    elif points_function == Fruitfly.distancepoint_compare:
         print("Best-First Search: Distancepoints")
     else:
         print("Best-First Search: Combinationpoints")
@@ -64,6 +64,6 @@ def bfs(root_genome, compare_function=None):
 
         # generate children and place in heap based on mutationpoints
         else:
-            children = genome.create_children(compare_function)
+            children = genome.create_children(points_function)
             for child in children:
                 heapq.heappush(queue, child)
