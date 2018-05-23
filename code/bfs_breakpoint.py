@@ -28,9 +28,11 @@ def bfs(root_genome):
 
     # add start node to queue
     queue.append(root_genome)
+    generation = 0
+    upperbound = len(root_genome) - 1
 
     #loop until you find goal node
-    while not solved:
+    while not solved and generation < upperbound:
 
         # get current node: node with least breakpoints
         genome = heapq.heappop(queue)
