@@ -12,17 +12,17 @@ class Fruitfly(object):
     The genome is loaded by using the function load_genome.
     """
 
-    def __init__(self, genes, generation=0, parent=None, compare_func=None):
+    def __init__(self, genes, generation=0, parent=None, points_function=None):
         """ Initialize with an array of genes from chosen fruitfly genome. """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
 
-        if not compare_func:
-            self.compare_func = self.breakpoint_compare
+        if not points_function:
+            self.points_function = self.breakpoint_compare
         else:
-            self.compare_func = compare_func
+            self.points_function = points_function
 
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
@@ -35,7 +35,7 @@ class Fruitfly(object):
     def __lt__(self, other):
         """ Overrides less-than comparison."""
 
-        return self.compare_func(self, other)
+        return self.points_function(self, other)
 
     def breakpoint_compare(self, other):
         return self.breakpoint < other.breakpoint
