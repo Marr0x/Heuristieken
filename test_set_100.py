@@ -6,10 +6,17 @@
 #   Test set
 
 from data import load_data
-import numpy as np
+import random
 
-genome_list_100 = []
-genome25 = load_data.load_genome("genome_length25.txt")
+def random_genome_list(length):
+    genome_list = []
+    genome25 = load_data.load_genome("genome_length25.txt")
+    #
+    while len(genome_list) < length:
+        genome_random = genome25[:25]
+        random.shuffle(genome_random)
 
+        if genome_random not in genome_list:
+            genome_list.append(genome_random)
 
-# for x in range(100):
+    return genome_list
