@@ -6,7 +6,7 @@
 #   Tests for algorithms!
 
 from code.classes.Fruitfly import Fruitfly
-from code import bfs_breakpoint
+from code import best_first_search
 import numpy as np
 
 genome = [23, 1, 2, 11, 24, 22, 19, 6, 10, 7, 25, 20, 5, 8, 18, 12, 13, 14, 15, 16, 17, 21, 3, 4, 9]
@@ -17,4 +17,4 @@ fly = Fruitfly(genome, 0)
 # print(fly)
 # print("breakpoints:", fly.breakpoints())
 
-bfs_breakpoint.bfs(fly)
+best_first_search.bfs(fly)

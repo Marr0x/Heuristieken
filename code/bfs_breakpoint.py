@@ -14,7 +14,7 @@ def bfs(root_genome):
 
         Args:
             root: genome sequence of fruitfly provided by user.
-            
+
     """
 
     solution = root_genome.solution()
@@ -48,5 +48,5 @@ def bfs(root_genome):
 
         for child in children:
             heapq.heappush(queue, child)
-            print(queue)
+            # print(queue)
             generation = child.get_generation()
