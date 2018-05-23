@@ -45,12 +45,6 @@ def bfs(root_genome):
 
         else:
 
-<<<<<<< HEAD
-        for child in children:
-            heapq.heappush(queue, child)
-            # print(queue)
-            generation = child.get_generation()
-=======
             # generate children
             children = genome.create_children()
 
