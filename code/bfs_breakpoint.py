@@ -59,4 +59,4 @@ def bfs(root_genome):
                 # print("queue:", queue)
                 # print("breakpoint:", child.breakpoint)
                 generation = child.get_generation()
->>>>>>> 0a9936f3738fb931772ab6922563d185c05b4458
+
