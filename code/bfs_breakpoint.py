@@ -43,10 +43,20 @@ def bfs(root_genome):
             print("solution found in generation:", solution_child.get_generation())
             print("path to solution:", solution_child.path_solution())
 
-        # generate children
-        children = genome.create_children()
+        else:
 
+<<<<<<< HEAD
         for child in children:
             heapq.heappush(queue, child)
             # print(queue)
             generation = child.get_generation()
+=======
+            # generate children
+            children = genome.create_children()
+
+            for child in children:
+                heapq.heappush(queue, child)
+                # print("queue:", queue)
+                # print("breakpoint:", child.breakpoint)
+                generation = child.get_generation()
+>>>>>>> 0a9936f3738fb931772ab6922563d185c05b4458
