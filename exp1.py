@@ -13,7 +13,9 @@ from code.classes.Fruitfly import Fruitfly
 from code import best_first_search
 from experimentation import test_set_100
 import numpy as np
+import matplotlib.pyplot as plt
 
+genome_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
 breakpoint_list = []
 distancepoint_list = []
 combinationpoint_list = []
@@ -25,12 +27,16 @@ for i in range(25):
 
     generation_break = best_first_search.bfs(fly)
     generation_dist = best_first_search.bfs(fly, Fruitfly.distancepoint_compare)
-    generation_combi = best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)
     breakpoint_list.append(generation_break)
     distancepoint_list.append(generation_dist)
-    combinationpoint_list.append(generation_combi)
 
+
+print(genome_list)
 print(breakpoint_list)
-print(distancepoint_list)
-print(combinationpoint_list)
+
+plt.plot(genome_list, breakpoint_list, marker="o", color="blue", label="breakpoint")
+plt.plot(genome_list, distancepoint_list, marker="o", color="red", label="distancepoint")
+plt.legend()
+
+plt.show()
 
