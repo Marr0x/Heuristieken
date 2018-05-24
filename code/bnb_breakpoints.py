@@ -47,7 +47,7 @@ def bnb(root_genome):
             children = genome.create_children(Fruitfly.breakpoint_compare)
 
             # select 2 children with the smallest breakpoints
-            smallest_children = heapq.nsmallest(2, children)
+            smallest_children = heapq.nsmallest(4, children)
 
             # Check generation of child and check if the child is the solution
             for child in smallest_children:
