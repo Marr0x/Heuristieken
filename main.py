@@ -68,7 +68,7 @@ def main():
                 break
 
     else:
-        test_set_100.random_genome_list(100)
+        test_set_100.random_genome_list(25)
 
 
 
