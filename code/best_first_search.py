@@ -13,7 +13,6 @@ from .classes.Fruitfly import Fruitfly
 import heapq
 import csv
 
-
 def bfs(root_genome, points_function=None):
     """ Best-First Search (bfs): Searches for series of mutations that changed
         the genome of one fruitfly species to the other one.
@@ -57,9 +56,8 @@ def bfs(root_genome, points_function=None):
             print("Solution found in generation: ",
                   solution_child.get_generation())
             
-            # 
+            #  
             data.append(solution_child.get_generation())
-            data.append(solution_child.get_parent())
             print('data',data)
 
             path = solution_child.path_solution()
@@ -77,7 +75,7 @@ def bfs(root_genome, points_function=None):
 
 
     # add data for experiment to csv file
-    # with open('experiment.csv', 'w') as write_file:
+    # with open('experiment.csv', 'w', newline='') as write_file:
     #     experiment_data = csv.writer(write_file)
     #     experiment_data.writerows(data)
 
