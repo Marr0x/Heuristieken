@@ -10,6 +10,7 @@
 
 from code.classes.Fruitfly import Fruitfly
 from code import best_first_search
+from code import bnb_breakpoints
 from data import load_data
 import numpy as np
 
@@ -77,18 +78,22 @@ def make_fly(genome):
     # ask user input: choose algorithm
     algorithm = input("\nWhich algorithm would you like to use to"
                       "find the evolutionary path between fruitflies?\n"
-                      "(1) best-first search: breakpoints\n"
-                      "(2) best-first search: distancepoints\n"
-                      "(3) best-first search: combinationpoints\n")
+                      "(1) Branch and Bond: breakpoints"
+                      "(2) best-first search: breakpoints\n"
+                      "(3) best-first search: distancepoints\n"
+                      "(4) best-first search: combinationpoints\n")
 
     # implement algorithms
     if algorithm == "1":
         print("\n")
-        best_first_search.bfs(fly, Fruitfly.breakpoint_compare)
+        bnb_breakpoints.bnb(fly, Fruitfly.breakpoint_compare)
     elif algorithm == "2":
         print("\n")
-        best_first_search.bfs(fly, Fruitfly.distancepoint_compare)
+        best_first_search.bfs(fly, Fruitfly.breakpoint_compare)
     elif algorithm == "3":
+        print("\n")
+        best_first_search.bfs(fly, Fruitfly.distancepoint_compare)
+    elif algorithm == "4":
         print("\n")
         best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)
     else:

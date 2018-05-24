@@ -11,15 +11,16 @@ from .classes.Fruitfly import Fruitfly
 import numpy as np
 import heapq
 
+
 def bnb(root_genome):
     """ Branch and Bound: breakpoints
 
     This algorithm searches for the best path to the solution genome
     (integers ordered from low to high). The path consists of swaps between
     genes of the genome.
-    From the root genome every possible swap is generated: children. Then the children
-    are being compard with the solution. When in this generation the solution exist the
-    upperbound is updated.
+    From the root genome every possible swap is generated: children. Then the
+    children are compard with the solution. When in this generation the solution
+    exist the upperbound is updated.
 
         Args:
             root: genome sequence of fruitfly provided by user.
@@ -56,7 +57,8 @@ def bnb(root_genome):
                         upperbound = child.get_generation()
                         path = child.path_solution()
                         path_length = child.path_length()
-                        print("Solution found in generation: {}, but still searching for a better solution".format(upperbound))
+                        print("Solution found in generation: {}, but still"
+                        " searching for a better solution".format(upperbound))
 
     print("\nBest solution found in generation: ", upperbound)
     print("Path to solution: ")
