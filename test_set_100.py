@@ -8,7 +8,7 @@
 from data import load_data
 import random
 
-def random_genome_list(length):
+def random_genome_list(n_sequences):
 	""" Random genome generator
 	"""
 
