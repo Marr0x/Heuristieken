@@ -28,6 +28,7 @@ def bnb(root_genome):
     start_runtime = timeit.default_timer()
 
     print("Branch and Bound: breakpoints")
+    print("genome fruitfly: ", root_genome)
 
     stack = []
     stack.append(root_genome)
@@ -63,6 +64,7 @@ def bnb(root_genome):
 
     print("\nBest solution found in generation: ", upperbound)
     print("Path to solution: ")
+    
     for swap in range(len(path)):
         print("swap: {:2d}".format(swap), path[swap])
     print("")
