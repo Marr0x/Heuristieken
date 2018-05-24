@@ -13,7 +13,7 @@ import heapq
 import timeit
 
 def bnb(root_genome):
-    """ Branch and Bound: breakpoints
+    """ Branch and Bound: depth first beam search with breakpoints
 
     This algorithm searches for the best path to the solution genome
     (integers ordered from low to high). The path consists of swaps between
@@ -27,8 +27,9 @@ def bnb(root_genome):
     """
     start_runtime = timeit.default_timer()
 
-    print("Branch and Bound: breakpoints")
-    print("genome fruitfly: ", root_genome)
+    print("Branch and Bound: depth first beam search with breakpoints\n")
+    print("genome fruitfly:", root_genome)
+
 
     stack = []
     stack.append(root_genome)
@@ -48,7 +49,8 @@ def bnb(root_genome):
             children = genome.create_children(Fruitfly.breakpoint_compare)
 
             # select 2 children with the smallest breakpoints
-            smallest_children = heapq.nsmallest(4, children)
+            smallest_children = heapq.nsmallest(2, children)
+
 
             # Check generation of child and check if the child is the solution
             for child in smallest_children:

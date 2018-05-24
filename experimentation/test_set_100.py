@@ -13,9 +13,6 @@ def random_genome_list(length):
     """
 
     genome_list = []
-    breakpoint_list = []
-    distancepoint_list = []
-    combinationpoint_list = []
 
     genome25 = load_data.load_genome("genome_length25.txt")
 
