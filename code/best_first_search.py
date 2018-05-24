@@ -11,6 +11,7 @@
 
 from .classes.Fruitfly import Fruitfly
 import heapq
+import timeit
 import csv
 
 def bfs(root_genome, points_function=None):
@@ -24,18 +25,19 @@ def bfs(root_genome, points_function=None):
                               both. Default is set on breakpoints.
 
     """
+    start_runtime = timeit.default_timer()
 
     if not points_function:
         points_function = Fruitfly.breakpoint_compare
 
-    if points_function == Fruitfly.breakpoint_compare:
-        print("Best-First Search: Breakpoints")
-    elif points_function == Fruitfly.distancepoint_compare:
-        print("Best-First Search: Distancepoints")
-    else:
-        print("Best-First Search: Combinationpoints")
+    # if points_function == Fruitfly.breakpoint_compare:
+    #     print("Best-First Search: Breakpoints")
+    # elif points_function == Fruitfly.distancepoint_compare:
+    #     print("Best-First Search: Distancepoints")
+    # else:
+    #     print("Best-First Search: Combinationpoints")
 
-    print("genome fruitfly:", root_genome)
+    # print("genome fruitfly:", root_genome)
 
     solution = root_genome.solution()
     solved = False
@@ -53,19 +55,18 @@ def bfs(root_genome, points_function=None):
         if genome == solution:
             solved = True
             solution_child = genome
-            print("Solution found in generation: ",
-                  solution_child.get_generation())
+            # print("Solution found in generation: ",
+            #       solution_child.get_generation())
             
             #  
-            data.append(solution_child.get_generation())
-            print('data',data)
+            # data.append(solution_child.get_generation())
+            # print('data',data)
 
 
             path = solution_child.path_solution()
-            print("Path to solution: ")
-            for swap in range(len(path)):
-                print("swap: {:2d}".format(swap), path[swap])
-            print("\n")
+            # print("Path to solution: ")
+            # for swap in range(len(path)):
+            #     print("swap: {:2d}".format(swap), path[swap])
 
         # generate children and place in heap based on mutationpoints
         else:
@@ -73,6 +74,13 @@ def bfs(root_genome, points_function=None):
             for child in children:
                 heapq.heappush(queue, child)
 
+
+    end_runtime = timeit.default_timer()
+
+    runtime = (end_runtime - start_runtime)
+    # print("runtime: ", runtime)
+
+    return solution_child.get_generation()
 
 
     # add data for experiment to csv file
