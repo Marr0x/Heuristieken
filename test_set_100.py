@@ -11,7 +11,7 @@ import random
 def random_genome_list(length):
     genome_list = []
     genome25 = load_data.load_genome("genome_length25.txt")
-    #
+
     while len(genome_list) < length:
         genome_random = genome25[:25]
         random.shuffle(genome_random)

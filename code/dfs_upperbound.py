@@ -1,4 +1,4 @@
-#   main.py
+#  dfs_upperbound.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
@@ -10,7 +10,6 @@ import numpy as np
 
 def dfs_upperbound(root_genome):
     """ Depth-First Search (dfs) Random.
-
     This algorithm takes a
         Args:
             root: genome sequence of fruitfly provided by user.
