@@ -11,7 +11,7 @@
 from code.classes.Fruitfly import Fruitfly
 from code import best_first_search
 from code import bnb_breakpoints
-from data import load_data
+from code import load_data
 from experimentation import test_set_100
 import numpy as np
 
