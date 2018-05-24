@@ -60,6 +60,7 @@ def bfs(root_genome, points_function=None):
             data.append(solution_child.get_generation())
             print('data',data)
 
+
             path = solution_child.path_solution()
             print("Path to solution: ")
             for swap in range(len(path)):

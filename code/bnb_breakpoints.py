@@ -10,7 +10,7 @@
 from .classes.Fruitfly import Fruitfly
 import numpy as np
 import heapq
-
+import timeit
 
 def bnb(root_genome):
     """ Branch and Bound: breakpoints
@@ -25,6 +25,7 @@ def bnb(root_genome):
         Args:
             root: genome sequence of fruitfly provided by user.
     """
+    start_runtime = timeit.default_timer()
 
     print("Branch and Bound: breakpoints")
 
@@ -65,3 +66,8 @@ def bnb(root_genome):
     for swap in range(len(path)):
         print("swap: {:2d}".format(swap), path[swap])
     print("")
+
+    end_runtime = timeit.default_timer()
+
+    runtime = (end_runtime - start_runtime)
+    print("runtime: ", runtime)
