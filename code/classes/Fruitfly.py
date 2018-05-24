@@ -81,8 +81,17 @@ class Fruitfly(object):
     def mutationpoints(self):
         """
         """
-
         
+        # mutationpoints = 0
+        # inversion = []
+        
+        # for x,y in enumerate(self.genes):
+        #     if self.parent[x] != y:
+        #         inversion.append(self.genes.index(y))
+
+        # # abs(min index - max index) = grote inversion = mutationpoints
+
+        # return mutationpoints
 
 
     def __lt__(self, other):
