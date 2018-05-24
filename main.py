@@ -84,7 +84,7 @@ def make_fly(genome):
     # ask user input: choose algorithm
     algorithm = input("\nWhich algorithm would you like to use to"
                       "find the evolutionary path between fruitflies?\n"
-                      "(1) Branch and Bond: breakpoints"
+                      "(1) Branch and Bound: breakpoints\n"
                       "(2) best-first search: breakpoints\n"
                       "(3) best-first search: distancepoints\n"
                       "(4) best-first search: combinationpoints\n")
@@ -92,7 +92,7 @@ def make_fly(genome):
     # implement algorithms
     if algorithm == "1":
         print("\n")
-        bnb_breakpoints.bnb(fly, Fruitfly.breakpoint_compare)
+        bnb_breakpoints.bnb(fly)
     elif algorithm == "2":
         print("\n")
         best_first_search.bfs(fly, Fruitfly.breakpoint_compare)
