@@ -7,9 +7,11 @@
 
 import random
 
-def random_genome_list(length):
-    """ Random genome generator
-    """
+
+def random_genome_list(n_sequences):
+	""" Random genome generator
+	"""
+
 
     genome_list = []
     genome25 = load_data.load_genome("genome_length25.txt")
