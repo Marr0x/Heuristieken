@@ -6,6 +6,7 @@
 #   Test set of 100 random generated genomes
 
 import random
+from code import load_data
 
 def random_genome_list(length):
     """ Random genome generator
