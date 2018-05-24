@@ -51,13 +51,13 @@ def main():
 
         while True:
             try:
-                length_genomeset = int(input("\nsize of genome? (1 - 25) \n"))
+                length_genomeset = int(input("\nsize of genome? (5 - 25) \n"))
 
             except ValueError:
                 print("Please enter valid size of genomeset.")
                 continue
 
-            if length_genomeset < 1 or length_genomeset > 25:
+            if length_genomeset < 5 or length_genomeset > 25:
                 print("Please enter valid size of genomeset.")
                 continue
 

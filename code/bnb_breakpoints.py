@@ -30,6 +30,7 @@ def bnb(root_genome):
     print("Branch and Bound: depth first beam search with breakpoints\n")
     print("genome fruitfly:", root_genome)
 
+
     stack = []
     stack.append(root_genome)
 
@@ -48,7 +49,8 @@ def bnb(root_genome):
             children = genome.create_children(Fruitfly.breakpoint_compare)
 
             # select 2 children with the smallest breakpoints
-            smallest_children = heapq.nsmallest(3, children)
+            smallest_children = heapq.nsmallest(2, children)
+
 
             # Check generation of child and check if the child is the solution
             for child in smallest_children:
@@ -64,6 +66,7 @@ def bnb(root_genome):
 
     print("\nBest solution found in generation: ", upperbound)
     print("Path to solution: ")
+
     for swap in range(len(path)):
         print("swap: {:2d}".format(swap), path[swap])
     print("")

@@ -78,6 +78,13 @@ class Fruitfly(object):
 
         return distancepoints
 
+    def mutationpoints(self):
+        """
+        """
+
+        
+
+
     def __lt__(self, other):
         """ Overrides less-than comparison to compare mutationpoints.
 
