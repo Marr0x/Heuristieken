@@ -116,8 +116,7 @@ class Fruitfly(object):
                 A boolean value.
         """
 
-        return self.breakpoint + self.distancepoint < other.breakpoint
-        + other.distancepoint
+        return self.breakpoint + self.distancepoint < other.breakpoint + other.distancepoint
 
     def get_genes(self):
         """ Gets fruitfly genes.
