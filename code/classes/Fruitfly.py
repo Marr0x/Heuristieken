@@ -10,6 +10,7 @@
 
 import numpy as np
 
+
 class Fruitfly(object):
     """ Contains attributes and methods needed to find the evolutionary path
         between fruitfly species.
@@ -93,7 +94,6 @@ class Fruitfly(object):
         # # abs(min index - max index) = grote inversion = mutationpoints
 
         # return mutationpoints
-
 
     def __lt__(self, other):
         """ Overrides less-than comparison to compare mutationpoints.

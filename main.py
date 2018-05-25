@@ -15,7 +15,6 @@ from code import load_data
 from experimentation import test_set_100
 import numpy as np
 import matplotlib
-from pipreqs import pipreqs
 
 def main():
 
@@ -70,7 +69,6 @@ def main():
 
     else:
         test_set_100.random_genome_list(25)
-
 
 
 def make_fly(genome):
