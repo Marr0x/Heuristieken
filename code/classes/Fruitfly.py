@@ -32,7 +32,6 @@ class Fruitfly(object):
         self.genes = genes
         self.generation = generation
         self.parent = parent
-        self.mutationpoint = mutationpoint
 
         if not points_function:
             self.points_function = self.breakpoint_compare
@@ -41,6 +40,8 @@ class Fruitfly(object):
 
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
+        self.mutationpoint = mutationpoint
+
 
     def breakpoints(self):
         """ Calculates the sum of the breakpoints in a genome. A breakpoint
@@ -77,21 +78,6 @@ class Fruitfly(object):
 
         return distancepoints
 
-    # def mutationpoints(self):
-    #     """
-    #     """
-
-        # mutationpoints = 0
-        # inversion = []
-        #
-        # for x,y in enumerate(self.genes):
-        #     if self.parent[x] != y:
-        #         inversion.append(self.genes.index(y))
-        #
-        # # abs(min index - max index) = grote inversion = mutationpoints
-
-        # return mutationpoints
-
     def __lt__(self, other):
         """ Overrides less-than comparison to compare mutationpoints.
 
@@ -122,6 +108,16 @@ class Fruitfly(object):
         """
 
         return self.distancepoint < other.distancepoint
+
+    def mutationpoint_compare(self, other):
+        """ Compares quantity of mutationpoints between fruitflies.
+
+            Returns:
+                A boolean value.
+
+        """
+
+        return self.mutationpoint < other.mutationpoint
 
     def combinationpoint_compare(self, other):
         """ Compares amount of breakpoints and distancepoints between fruitflies.
