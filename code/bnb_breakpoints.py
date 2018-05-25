@@ -8,7 +8,6 @@
 #   Implements algorithms to find the evolutionary path between fruit fly species.
 
 from .classes.Fruitfly import Fruitfly
-import numpy as np
 import heapq
 import timeit
 
@@ -39,20 +38,19 @@ def bnb(root_genome):
     # upperbound found in smallest first algorithm
     upperbound = len(root_genome) - 1
 
+    n_children = 2
+
     solution = root_genome.solution()
 
     while stack:
-        print(stack[:5], stack[-5:])
         genome = stack.pop()
         genome_generation = genome.get_generation()
 
         if genome_generation < upperbound:
             children = genome.create_children(Fruitfly.breakpoint_compare)
-            # children = genome.create_children(Fruitfly.combinationpoint_compare)
 
             # select 2 children with the smallest breakpoints
-            smallest_children = heapq.nsmallest(2, children)
-
+            smallest_children = heapq.nsmallest(n_children, children)
 
             # Check generation of child and check if the child is the solution
             for child in smallest_children:
