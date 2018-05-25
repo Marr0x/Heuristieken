@@ -16,7 +16,6 @@ from experimentation import test_set_100
 import numpy as np
 import matplotlib
 
-
 def main():
 
     # ask user for input: choose genomeset
