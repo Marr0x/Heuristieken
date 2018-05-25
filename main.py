@@ -15,7 +15,7 @@ from code import load_data
 from experimentation import test_set_100
 import numpy as np
 import matplotlib
-from pipreqs import pipreqs
+
 
 def main():
 
