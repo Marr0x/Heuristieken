@@ -8,7 +8,6 @@
 #   The Fruitfly class contains all the attributes and methods needed to find
 #   the evolutionary path between fruitfly species.
 
-
 import numpy as np
 
 class Fruitfly(object):
