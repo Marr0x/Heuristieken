@@ -8,6 +8,7 @@
 #   The Fruitfly class contains all the attributes and methods needed to find
 #   the evolutionary path between fruitfly species.
 
+import numpy as np
 
 class Fruitfly(object):
     """ Contains attributes and methods needed to find the evolutionary path
@@ -30,7 +31,7 @@ class Fruitfly(object):
 
         """
 
-        self.genes = genes
+        self.genes = np.array(genes)
         self.generation = generation
         self.parent = parent
 
@@ -81,10 +82,10 @@ class Fruitfly(object):
     def mutationpoints(self):
         """
         """
-        
+
         # mutationpoints = 0
         # inversion = []
-        
+
         # for x,y in enumerate(self.genes):
         #     if self.parent[x] != y:
         #         inversion.append(self.genes.index(y))

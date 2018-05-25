@@ -17,6 +17,7 @@ import numpy as np
 import timeit
 
 start_runtime = timeit.default_timer()
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -25,6 +26,15 @@ x1 = 1
 x2 = 101
 genome_list = range(x1, x2, 1)
 >>>>>>> e1997c28ecaad10f4fff52d7b2e20ca430235d18
+=======
+
+
+# genome_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+x1 = 1
+x2 = 101
+genome_list = range(x1, x2, 1)
+
+>>>>>>> 1c9351727213c872ec98259527fb9d94d1ec9b24
 breakpoint_list = []
 distancepoint_list = []
 
@@ -42,7 +52,10 @@ for i in range(100):
     breakpoint_list.append(generation_break)
     distancepoint_list.append(generation_dist)
     # combinationpoint_list.append(generation_combi)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c9351727213c872ec98259527fb9d94d1ec9b24
 
 <<<<<<< HEAD
 plt.plot(genome, breakpoint_list, marker="o", color="blue", label="breakpoints")
@@ -66,7 +79,11 @@ plt.title('Compare algorithms')
 plt.xlabel('100 random genomes of length 25')
 plt.ylabel('Number of swaps')
 plt.grid(True)
+<<<<<<< HEAD
 >>>>>>> e1997c28ecaad10f4fff52d7b2e20ca430235d18
+=======
+
+>>>>>>> 1c9351727213c872ec98259527fb9d94d1ec9b24
 plt.legend()
 
 plt.show()
