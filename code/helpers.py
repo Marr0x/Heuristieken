@@ -1,14 +1,14 @@
-#   load_data.py
+#   helpers.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306), Shan Shan Huang (10768793) & Marwa Ahmed (10747141)
 #
-#   Loads file with fruitfly genomes.
+#   Contains functions that support the algorithms.
 
 def load_genome(file_name):
     """ loads an array with fruitfly genes from text file.
 
-        Args: name of textfile (e.g. "genome1.txt")
+        Args: name of textfile (e.g. "genome_length25.txt")
         Returns: genome from the file
 
     """

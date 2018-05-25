@@ -9,7 +9,7 @@
 #   the genome of one fruitfly species to the other one. To select "the best"
 #   fruitflychild it uses breakpoints, distancepoints or a combination of both.
 
-# from .classes.Fruitfly import Fruitfly
+from .classes.Fruitfly import Fruitfly
 import heapq
 import timeit
 

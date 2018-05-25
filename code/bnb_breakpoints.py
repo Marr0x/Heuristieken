@@ -7,7 +7,7 @@
 #
 #   Implements algorithms to find the evolutionary path between fruit fly species.
 
-# from .classes.Fruitfly import Fruitfly
+from .classes.Fruitfly import Fruitfly
 import heapq
 
 def bnb(root_genome):

@@ -9,10 +9,9 @@
 #   fruit fly species.
 
 from code.classes.Fruitfly import Fruitfly
-from code.algorithms import best_first_search
-from code.algorithms import bnb_breakpoints
-from code import load_data
-from experimentation import test_set_100
+from code import best_first_search
+from code import bnb_breakpoints
+from code import helpers
 import numpy as np
 import matplotlib
 
@@ -24,13 +23,12 @@ def main():
         try:
             genomeset = int(input("Please choose one of the options below: \n"
                                   "(1) Use default genome set with 25 genes\n"
-                                  "(2) Generate own random genome set\n"
-                                  "(3) Do experiment with 25 genes (100x)\n"))
+                                  "(2) Generate own random genome set\n"))
         except ValueError:
             print("Please enter valid option (number).")
             continue
 
-        if genomeset < 1 or genomeset > 3:
+        if genomeset < 1 or genomeset > 2:
             print("Please enter valid option (number).")
             continue
 
@@ -42,13 +40,13 @@ def main():
 
     # make fruitfly with genome of length 25
     if genomeset == 1:
-        genome = load_data.load_genome("genome_length25.txt")
+        genome = helpers.load_genome("genome_length25.txt")
         if not genome:
             print("Could not load genome set")
         make_fly(genome)
 
     # make fruitfly with genome of given length
-    elif genomeset == 2:
+    else:
 
         while True:
             try:
@@ -68,8 +66,6 @@ def main():
                 make_fly(genome)
                 break
 
-    else:
-        test_set_100.random_genome_list(25)
 
 
 def make_fly(genome):
