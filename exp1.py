@@ -56,9 +56,9 @@ plt.plot(genome_list, breakpoint_list, marker="o", color="blue", label="breakpoi
 plt.plot(genome_list, distancepoint_list, marker="o", color="red", label="distancepoint")
 # plt.plot(genome_list, generation_combi, marker="o", color="green", label="combination")
 
-plt.title('Compare algorithms')
+plt.title('Compare Best-first search breakpoints with distancepoints')
 plt.xlabel('100 random genomes of length 25')
-plt.ylabel('Number of swaps')
+plt.ylabel('Number of inversions')
 plt.grid(True)
 
 plt.legend()
