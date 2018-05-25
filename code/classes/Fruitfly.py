@@ -1,4 +1,4 @@
-mutationpoints#   Fruitfly.py
+#   Fruitfly.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306),
@@ -130,7 +130,9 @@ class Fruitfly(object):
                 A boolean value.
         """
 
+        # 
         alpha = 0.01
+        
         return self.breakpoint + round(self.distancepoint * alpha) < other.breakpoint + round(other.distancepoint * alpha)
 
     def get_genes(self):
