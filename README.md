@@ -3,11 +3,11 @@
 The goal of this project is to find the evolutionary path between two fruit fly species. The genes of the fruit flies Drosophila Melanogaster and Drosophila Miranda are identical. The only difference between the genomes of the two species is that the genes are sorted in a different order due to mutations (Picture 1). Mutations occur when segments of the gene reverse. In the current project our aim is to find which series of mutations led to the genome of one of the species from the other one. More series are possible, but our goal is to find the most plausible one: the series with the smallest and the least mutations.
 
 Picture 1.
-![genomes fruit flies](http://heuristieken.nl/wiki/images/0/03/Tweegenomen.gif)
+![genomes fruitflies](http://heuristieken.nl/wiki/images/0/03/Tweegenomen.gif)
 
 
 For more information about the case:
-[Heuristieken Fruitvlieg](http://heuristieken.nl/wiki/index.php?title=Fruitvliegen)
+[Heuristics fruitfly](http://heuristieken.nl/wiki/index.php?title=Fruitvliegen)
 
 ## Getting Started ##
 
@@ -16,7 +16,7 @@ For more information about the case:
 - Numpy 1.14.3
 
 ### Code ###
-This folder holds all the scripts: algorithms, classes, and helper functions.
+This folder holds all the scripts: classes, algorithms and helper functions.
 
 - Classes:
     - Fruitfly Class: This class consists of attributes of a fruitfly, such as
@@ -25,8 +25,7 @@ This folder holds all the scripts: algorithms, classes, and helper functions.
                       fruitfly has. In addition it contains methods that can make
                       fruitfly children.
  
-- Best-first Search: Finds a path between fruitflies by constantly
-  selecting "best" fruitfly child based on the following:
+- Best-first Search: Finds a path between fruitflies by constantly selecting the "best" fruitfly child based on the following:
     - Breakpoints: When there are two non-consecutive numbers.
     - Distancepoints: How far an gene is from solution genome.
     - Combinationpoints: Combines breakpoints and distancepoints.
@@ -43,7 +42,7 @@ This folder holds all the data used for this case.
     - genome_length25.txt: contains the genome of drosophila melanogaster with a length of 25 genes.
 
 ## Usage ##
-main.py is the main script that is responsible for finding the evolutionary path between two fruitfly species. 
+main.py is the main script asking user input to run algorithms to find the evolutionary path between two fruitfly species. 
 
 Asks user to choose a genomeset:
 1. Drosophila melanogaster genome of length 25.

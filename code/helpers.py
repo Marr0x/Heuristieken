@@ -7,6 +7,7 @@
 #
 #   Contains a function that loads a file with a genome sequence.
 
+
 def load_genome(file_name):
     """ Loads an array with fruitfly genes from text file.
 

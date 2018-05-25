@@ -251,6 +251,7 @@ class Fruitfly(object):
 
                 reversed_list = self.rev(start_rev, end_rev)
 
+                # formula mutationpoints based upon the evolution whereas large inversions are less likely
                 child = Fruitfly(reversed_list, self.generation + 1, self,
                                  compare_function, 0.5 * (end_rev - start_rev)**2)
 

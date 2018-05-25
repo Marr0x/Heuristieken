@@ -21,14 +21,14 @@ def main():
     while True:
         try:
             genomeset = int(input("Please choose one of the options below: \n"
-                                  "(1) Use D. Melanogaster genome set with 25 genes\n"
+                                  "(1) D. Melanogaster genome set with 25 genes\n"
                                   "(2) Generate random genome set\n"))
         except ValueError:
-            print("Please enter valid option (number).")
+            print("Please enter a valid option (number).")
             continue
 
         if genomeset < 1 or genomeset > 2:
-            print("Please enter valid option (number).")
+            print("Please enter a valid option (number).")
             continue
         else:
             break
