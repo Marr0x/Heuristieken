@@ -5,7 +5,7 @@
 #
 #   Basic breadth-first search algorithm.
 
-from .classes.Fruitfly import Fruitfly
+from .classes.Fruitflytest import Fruitflytest
 
 
 def bfs(root_genome):
@@ -37,8 +37,10 @@ def bfs(root_genome):
         for child in children:
                 queue.append(child)
 
-    print("Breadth-First Search (basic)")
+    print("\nBreadth-First Search (basic)")
     print("genome fruitfly:", root_genome)
     print("solution child:", solution_child)
     print("solution found in generation:", solution_child.get_generation())
     print("path to solution:", solution_child.path_solution())
+
+    return solution_child.get_generation()
