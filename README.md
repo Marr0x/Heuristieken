@@ -12,20 +12,48 @@ For more information about the case:
 ## Getting Started ##
 
 ### Requirements ###
-- Python 3.x
-- Numpy
+- Python 3.6.5
+- Matplotlib 2.2.2
+- Numpy 1.14.3
 
 ### Code ###
-This folder holds all the scripts: algorithms and classes.
-- Classes: Fruitfly Class
-- Best-first Search: using breakpoints, distancepoints, and a combination of both.
-- Depth-first Search with upperbound: works on small genomes only for now. (Archive too big)
+This folder holds all the scripts: algorithms, classes, and helper functions.
+
+- Classes:
+    - Fruitfly Class: This class consists of attributes of a fruitfly, such as
+                      the genes, the geneartion, the parent of a fruitfly, and
+                      how many breakpoints, distancepoints, mutationpoints a
+                      fruitfly has. In addition it contains methods that can make
+                      fruitfly children.
+ 
+- Best-first Search: Finds a path between fruitflies by constantly
+  selecting "best" fruitfly child based on the following:
+    - Breakpoints: When there are two non-consecutive numbers.
+    - Distancepoints: How far an gene is from solution genome.
+    - Combinationpoints: Combines breakpoings and distancepoints.
+    - Mutationpoints: How big a reversion is.
+
+- Branch&Bound depth-first beam search: searches for a path between fruitflies
+  by selecting the "best" two children based on breakpoints.
+
+- Helpers.py is an helper script that for example loads a data genome.
 
 ### Data ###
-This folder holds all the data used for this case, including textfiles with the genomes of the fruitfly species.
+This folder holds all the data used for this case.
+    - genome_length25.txt: contains the genome of drosophila melanogaster with a length of 25 genes.
 
 ## Usage ##
-main.py is the main script that is responsible for calculating the evolutionary path between two fruitfly species. It expects an array of numbers that represents the genes of a fruitfly as input. An algorithm can be chosen to calculate a series of mutations that led to the genome of one fruitfly to the other.
+main.py is the main script that is responsible for calculating the evolutionary path between two fruitfly species. 
+
+Asks user to choose a genomeset:
+1. Drosophila melanogaster genome of length 25.
+2. Random genome of a chosen length between 5-25.
+
+Asks user to choose an algorithm:
+1. Branch and Bound: breakpoints.
+2. Best-first search: breakpoints.
+3. Best-first search: distancepoints.
+4. Best-first search: combinationpoints.
 
 ## Authors ##
 - Marwa Ahmed
