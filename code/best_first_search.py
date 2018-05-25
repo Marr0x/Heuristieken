@@ -44,7 +44,6 @@ def bfs(root_genome, points_function=None):
 
     queue = []
     queue.append(root_genome)
-    data = []
 
     while not solved:
 
