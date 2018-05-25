@@ -12,7 +12,6 @@
 from .classes.Fruitfly import Fruitfly
 import heapq
 import timeit
-import csv
 
 def bfs(root_genome, points_function=None):
     """ Best-First Search (bfs): Searches for series of mutations that changed
