@@ -41,11 +41,13 @@ def bnb(root_genome):
     solution = root_genome.solution()
 
     while stack:
+        print(stack[:5], stack[-5:])
         genome = stack.pop()
         genome_generation = genome.get_generation()
 
         if genome_generation < upperbound:
             children = genome.create_children(Fruitfly.breakpoint_compare)
+            # children = genome.create_children(Fruitfly.combinationpoint_compare)
 
             # select 2 children with the smallest breakpoints
             smallest_children = heapq.nsmallest(2, children)
