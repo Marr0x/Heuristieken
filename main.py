@@ -13,7 +13,6 @@ from code import best_first_search
 from code import bnb_breakpoints
 from code import helpers
 import numpy as np
-import matplotlib
 
 
 def main():
@@ -22,8 +21,8 @@ def main():
     while True:
         try:
             genomeset = int(input("Please choose one of the options below: \n"
-                                  "(1) Use default genome set with 25 genes\n"
-                                  "(2) Generate own random genome set\n"))
+                                  "(1) Use D. Melanogaster genome set with 25 genes\n"
+                                  "(2) Generate random genome set\n"))
         except ValueError:
             print("Please enter valid option (number).")
             continue
@@ -31,11 +30,9 @@ def main():
         if genomeset < 1 or genomeset > 2:
             print("Please enter valid option (number).")
             continue
-
         else:
             break
 
-    # make fruitfly with genomeset
     genome = []
 
     # make fruitfly with genome of length 25
@@ -51,7 +48,6 @@ def main():
         while True:
             try:
                 length_genomeset = int(input("\nsize of genome? (5 - 25) \n"))
-
             except ValueError:
                 print("Please enter valid size of genomeset.")
                 continue
@@ -59,7 +55,6 @@ def main():
             if length_genomeset < 5 or length_genomeset > 25:
                 print("Please enter valid size of genomeset.")
                 continue
-
             else:
                 genome = list(range(1, length_genomeset + 1))
                 np.random.shuffle(genome)
@@ -67,23 +62,24 @@ def main():
                 break
 
 
-
 def make_fly(genome):
     """ Makes fruitfly using given genome.
 
         Args:
-            Genome: list of integerers.
+            Genome: list of integers.
+
     """
 
     fly = Fruitfly(genome, 0)
 
     # ask user input: choose algorithm
-    algorithm = input("\nWhich algorithm would you like to use to"
+    algorithm = input("\nWhich algorithm would you like to use to "
                       "find the evolutionary path between fruitflies?\n"
-                      "(1) Branch and Bound: breakpoints\n"
-                      "(2) best-first search: breakpoints\n"
-                      "(3) best-first search: distancepoints\n"
-                      "(4) best-first search: combinationpoints\n")
+                      "(1) Branch and Bound:  breakpoints\n"
+                      "(2) Best-first search: breakpoints\n"
+                      "(3) Best-first search: distancepoints\n"
+                      "(4) Best-first search: mutationpoints\n"
+                      "(5) Best-first search: combinationpoints\n")
 
     # implement algorithms
     if algorithm == "1":
@@ -96,6 +92,9 @@ def make_fly(genome):
         print("\n")
         best_first_search.bfs(fly, Fruitfly.distancepoint_compare)
     elif algorithm == "4":
+        print("\n")
+        best_first_search.bfs(fly, Fruitfly.mutationpoint_compare)
+    elif algorithm == "5":
         print("\n")
         best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)
     else:
