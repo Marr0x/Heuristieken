@@ -57,8 +57,8 @@ Asks user to choose an algorithm:
 
 Notes:
 - It is not recommended to use the Branch and Bound to find a solution with a large random
-genome, because of the long runtime.
-- It is not recommended to use Best-first search: mutationpoints to find a solution with
+genome (genes > 15), because of the long runtime.
+- It is not recommended to use Best-first search for mutationpoints to find a solution with
 a large genome, because of the long runtime.
 
 ## Authors ##

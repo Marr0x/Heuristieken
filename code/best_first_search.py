@@ -60,7 +60,7 @@ def bfs(root_genome, points_function=None):
             print("Solution found in generation: ",
                   genome.get_generation())
 
-            path = solution_child.path_solution()
+            path = genome.path_solution()
             print("Path to solution: ")
 
             for inversion in range(len(path)):

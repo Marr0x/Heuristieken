@@ -98,7 +98,7 @@ def make_fly(genome):
         print("\n")
         best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)
     else:
-        print("Please enter valid option")
+        print("Please enter a valid option (number).")
 
 
 if __name__ == "__main__":
