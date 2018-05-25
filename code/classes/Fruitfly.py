@@ -90,7 +90,7 @@ class Fruitfly(object):
         #
         # # abs(min index - max index) = grote inversion = mutationpoints
 
-        return mutationpoints
+        # return mutationpoints
 
     def __lt__(self, other):
         """ Overrides less-than comparison to compare mutationpoints.
