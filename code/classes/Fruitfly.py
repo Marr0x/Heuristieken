@@ -1,4 +1,4 @@
-#   Fruitfly.py
+mutationpoints#   Fruitfly.py
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306),
@@ -8,16 +8,13 @@
 #   The Fruitfly class contains all the attributes and methods needed to find
 #   the evolutionary path between fruitfly species.
 
-import numpy as np
-
-
 class Fruitfly(object):
     """ Contains attributes and methods needed to find the evolutionary path
         between fruitfly species.
 
     """
 
-    def __init__(self, genes, generation=0, parent=None, points_function=None):
+    def __init__(self, genes, generation=0, parent=None, points_function=None, mutationpoints = None):
         """ Initializes a fruitfly.
 
             Args:
@@ -43,6 +40,7 @@ class Fruitfly(object):
 
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
+        self.mutationpoint = mutationpoints
 
     def breakpoints(self):
         """ Calculates the sum of the breakpoints in a genome. A breakpoint
@@ -79,17 +77,17 @@ class Fruitfly(object):
 
         return distancepoints
 
-    def mutationpoints(self):
-        """
-        """
+    # def mutationpoints(self):
+    #     """
+    #     """
 
         # mutationpoints = 0
         # inversion = []
-
+        #
         # for x,y in enumerate(self.genes):
         #     if self.parent[x] != y:
         #         inversion.append(self.genes.index(y))
-
+        #
         # # abs(min index - max index) = grote inversion = mutationpoints
 
         # return mutationpoints
@@ -165,10 +163,15 @@ class Fruitfly(object):
 
         return self.parent
 
-    def print_genes(self):
-        """ Prints fruitfly genes. """
+    def get_mutationpoints(self):
+        """ Getter for the mutationpoints.
 
-        print(self.genes)
+        Returns:
+            mutationpoints (integer)
+
+        """
+
+        return self.mutationpoints
 
     def __eq__(self, other):
         """ Overrides equality operator to compare genes of fruitfly.
@@ -247,7 +250,7 @@ class Fruitfly(object):
 
                 reversed_list = self.rev(start_rev, end_rev)
 
-                child = Fruitfly(reversed_list, self.generation + 1, self, compare_function)
+                child = Fruitfly(reversed_list, self.generation + 1, self, compare_function, abs(end_rev - start_rev))
 
                 children.append(child)
 
