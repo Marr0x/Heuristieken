@@ -9,6 +9,7 @@
 
 from .classes.Fruitfly import Fruitfly
 import heapq
+import timeit
 
 def bnb(root_genome):
     """ Branch and Bound: depth first beam search with breakpoints
@@ -67,7 +68,7 @@ def bnb(root_genome):
     print("Path to solution: ")
 
     for swap in range(len(path)):
-        print("swap: {:2d}".format(swap), path[swap])
+        print("swap: {:2d} {}".format(swap, path[swap]))
     print("")
 
     end_runtime = timeit.default_timer()
