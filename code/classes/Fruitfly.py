@@ -1,6 +1,6 @@
 #   Fruitfly.py
 #
-#   Heuristics - Case: Fruit fly
+#   Heuristics - Case: Fruitfly
 #   Authors: Mercylyn Wiemer (10749306),
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
@@ -26,7 +26,7 @@ class Fruitfly(object):
                 parent: fruitfly that is a parent of a fruitfly child.
                 points_function: compares points given to a fruitfly
                     genome. Consist of mutationpoints, breakpoints,
-                    distancepoints, and a combination of break -and distancepoints.
+                    distancepoints, and a combination of break + distancepoints.
                     Default is set on breakpoints when no points function is given.
                 mutationpoint: integer that represents the length of an inversion.
 
@@ -83,11 +83,11 @@ class Fruitfly(object):
         return distancepoints
 
     def __lt__(self, other):
-        """ Overrides less-than comparison to compare mutationpoints.
+        """ Overrides less-than comparison to compare points.
 
             Returns:
                 A points function that compares either breakpoints, distance-
-                points or a combination of both.
+                points, mutationpoints or a combination of breakpoints + distancepoints.
 
         """
 
@@ -232,7 +232,7 @@ class Fruitfly(object):
             fruitfly, making all possible inversions.
 
             Args:
-                compare_function: chooses the points to compare fruitflies.
+                compare_function: chooses a pointsfunction to compare fruitflies.
 
             Returns:
                 children: list of fruitfly children.

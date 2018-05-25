@@ -1,12 +1,12 @@
 #   main.py
 #
-#   Heuristics - Case: Fruit fly
+#   Heuristics - Case: Fruitfly
 #   Authors: Mercylyn Wiemer (10749306),
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
 #
 #   Implements algorithms to find the evolutionary path between
-#   fruit fly species.
+#   fruitfly species.
 
 from code.classes.Fruitfly import Fruitfly
 from code import best_first_search

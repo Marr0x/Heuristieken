@@ -13,7 +13,6 @@ For more information about the case:
 
 ### Requirements ###
 - Python 3.6.5
-- Matplotlib 2.2.2
 - Numpy 1.14.3
 
 ### Code ###
@@ -30,10 +29,11 @@ This folder holds all the scripts: algorithms, classes, and helper functions.
   selecting "best" fruitfly child based on the following:
     - Breakpoints: When there are two non-consecutive numbers.
     - Distancepoints: How far an gene is from solution genome.
-    - Combinationpoints: Combines breakpoings and distancepoints.
-    - Mutationpoints: How big a reversion is.
+    - Combinationpoints: Combines breakpoints and distancepoints.
+    - Mutationpoints: How large an inversion is. In the evolution small inversions
+        are more likely than large inversions.
 
-- Branch&Bound depth-first beam search: searches for a path between fruitflies
+- Branch and Bound (depth-first) with breakpoints: searches for a path between fruitflies
   by selecting the "best" two children based on breakpoints.
 
 - Helpers.py is an helper script that for example loads a data genome.
@@ -43,7 +43,7 @@ This folder holds all the data used for this case.
     - genome_length25.txt: contains the genome of drosophila melanogaster with a length of 25 genes.
 
 ## Usage ##
-main.py is the main script that is responsible for calculating the evolutionary path between two fruitfly species. 
+main.py is the main script that is responsible for finding the evolutionary path between two fruitfly species. 
 
 Asks user to choose a genomeset:
 1. Drosophila melanogaster genome of length 25.
@@ -53,7 +53,14 @@ Asks user to choose an algorithm:
 1. Branch and Bound: breakpoints.
 2. Best-first search: breakpoints.
 3. Best-first search: distancepoints.
-4. Best-first search: combinationpoints.
+4. Best-first search: mutationpoints.
+5. Best-first search: combinationpoints.
+
+Notes:
+- It is not recommended to use the Branch and Bound to find a solution with a large random
+genome, because of the long runtime.
+- It is not recommended to use Best-first search: mutationpoints to find a solution with
+a large genome, because of the long runtime.
 
 ## Authors ##
 - Marwa Ahmed
