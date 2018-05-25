@@ -8,37 +8,40 @@
 #   The Fruitfly class contains all the attributes and methods needed to find
 #   the evolutionary path between fruitfly species.
 
+
 class Fruitfly(object):
     """ Contains attributes and methods needed to find the evolutionary path
         between fruitfly species.
 
     """
 
-    def __init__(self, genes, generation=0, parent=None, points_function=None, mutationpoint = None):
+    def __init__(self, genes, generation=0, parent=None, points_function=None,
+                 mutationpoint=None):
         """ Initializes a fruitfly.
 
             Args:
-                genes: List of integers that represent a fruitfly genome.
-                generation: Integer that shows in which generation fruitfly
+                genes: list of integers that represent a fruitfly genome.
+                generation: integer that shows in which generation fruitfly
                     child is made.
-                parent: Fruitfly that is a parent of a fruitfly child.
-                points_function: Compares mutationpoints given to a fruitfly
-                    genome. Consist of breakpoints, distancepoints, and a
-                    combination of both. Default is set on breakpoints when no
-                    points function is given.
+                parent: fruitfly that is a parent of a fruitfly child.
+                points_function: compares points given to a fruitfly
+                    genome. Consist of mutationpoints, breakpoints,
+                    distancepoints, and a combination of break -and distancepoints.
+                    Default is set on breakpoints when no points function is given.
+                mutationpoint: integer that represents the length of an inversion.
 
         """
 
         self.genes = genes
         self.generation = generation
         self.parent = parent
-        self.mutationpoint = mutationpoint
 
         if not points_function:
             self.points_function = self.breakpoint_compare
         else:
             self.points_function = points_function
 
+        self.mutationpoint = mutationpoint
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
 
@@ -48,6 +51,7 @@ class Fruitfly(object):
 
             Returns:
                 The total breakpoints of a genome: integer.
+
         """
 
         breakpoints = 0
@@ -65,6 +69,7 @@ class Fruitfly(object):
 
             Returns:
                 The total distancepoints of a genome: integer.
+
         """
 
         distancepoints = 0
@@ -109,7 +114,7 @@ class Fruitfly(object):
         return self.distancepoint < other.distancepoint
 
     def mutationpoint_compare(self, other):
-        """ Compares amount of distancepoints between fruitflies.
+        """ Compares amount of mutationpoints between fruitflies.
 
             Returns:
                 A boolean value.
@@ -119,16 +124,13 @@ class Fruitfly(object):
         return self.mutationpoint < other.mutationpoint
 
     def combinationpoint_compare(self, other):
-        """ Compares amount of breakpoints and distancepoints between fruitflies.
+        """ Compares amount of breakpoints plus distancepoints between fruitflies.
 
             Returns:
                 A boolean value.
         """
 
-        #
-        alpha = 0.01
-
-        return self.breakpoint + round(self.distancepoint * alpha) < other.breakpoint + round(other.distancepoint * alpha)
+        return self.breakpoint + self.distancepoint < other.breakpoint + other.distancepoint
 
     def get_genes(self):
         """ Gets fruitfly genes.
@@ -187,10 +189,11 @@ class Fruitfly(object):
             The number of genes (integers) in a genome (list).
 
         """
+
         return len(self.genes)
 
     def __repr__(self):
-        """ Overrides __reprr__() method.
+        """ Overrides __repr__ method.
 
         Returns:
             String representation of genes.
@@ -203,15 +206,14 @@ class Fruitfly(object):
 
             Two indexes are given: start value and end value. The genome will
             be reverserd from the start to end value.
-            If a greater value is given than the length of the genome and error
-            message will be given.
 
             Args:
-                x (int):  Index of list where reversion should start.
-                y (int): Index of list where reversion should end.
+                x (int): index of list where reversion should start.
+                y (int): index of list where reversion should end.
 
             Returns:
                 Genes in new order: list of integers.
+
         """
 
         new_genes = self.genes[:]
@@ -219,20 +221,22 @@ class Fruitfly(object):
         if x is 0:
             new_genes[:y+1] = new_genes[y::-1]
             return new_genes
-        elif y < len(self.genes):
+        else:
             new_genes[x:y+1] = new_genes[y:x-1:-1]
             return new_genes
-        else:
-            print("error: start or end index invalid")
 
     def create_children(self, compare_function):
         """ Creates children of genome.
 
             The children of the genome are created by iterating over the parent
-            fruitfly, making all possible reversions.
+            fruitfly, making all possible inversions.
+
+            Args:
+                compare_function: chooses the points to compare fruitflies.
 
             Returns:
-                Children: list of fruitfly children.
+                children: list of fruitfly children.
+
         """
 
         n = len(self.genes)
@@ -247,7 +251,8 @@ class Fruitfly(object):
 
                 reversed_list = self.rev(start_rev, end_rev)
 
-                child = Fruitfly(reversed_list, self.generation + 1, self, compare_function, end_rev - start_rev)
+                child = Fruitfly(reversed_list, self.generation + 1, self,
+                                 compare_function, 0.5 * (end_rev - start_rev)**2)
 
                 children.append(child)
 
@@ -266,13 +271,14 @@ class Fruitfly(object):
         return solution
 
     def path_solution(self):
-        """ Shows the path/ the series of mutations from a fruitfly genome
+        """ Shows the path of inversions from a fruitfly genome
             to the solution.
 
         Returns:
             The path of the solution: list of fruitflies.
 
         """
+
         path = [self]
         ancestor = self.parent
 

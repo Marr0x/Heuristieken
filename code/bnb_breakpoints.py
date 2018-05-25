@@ -2,57 +2,59 @@
 #
 #   Heuristics - Case: Fruit fly
 #   Authors: Mercylyn Wiemer (10749306),
-#            Shan Shan Huang (10768793)&
+#            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
 #
-#   Implements algorithms to find the evolutionary path between fruit fly species.
+#   Implements the Branch and Bound (dfs) algorithm that prunes using
+#   breakpoints to find the evolutionary path between fruit fly species.
 
 from .classes.Fruitfly import Fruitfly
 import heapq
 import timeit
 
+
 def bnb(root_genome):
-    """ Branch and Bound: depth first beam search with breakpoints
+    """ Branch and Bound: depth first search that prunes using breakpoints.
 
     This algorithm searches for the best path to the solution genome
-    (integers ordered from low to high). The path consists of swaps between
-    genes of the genome.
-    From the root genome every possible swap is generated: children. Then the
-    children are compard with the solution. When in this generation the solution
-    exist the upperbound is updated.
+    (integers ordered from low to high). The path consists of inversions of
+    blocks of genes. From the root genome every possible inversion is generated:
+    the children. The best two children, based on breakpoints, are selected and
+    added to the stack. Then the children are compard with the solution.
+    When in a generation the solution is found the upperbound is updated.
+    So the algorithm will discard the children after this generation.
 
         Args:
-            root: genome sequence of fruitfly provided by user.
+            root_genome: genome sequence of fruitfly provided by user.
     """
+
     start_runtime = timeit.default_timer()
 
-    print("Branch and Bound: depth first beam search with breakpoints\n")
-    print("genome fruitfly:", root_genome)
-
+    print("Branch and Bound: depth-first search using breakpoints.\n")
+    print("Genome fruitfly:", root_genome)
 
     stack = []
     stack.append(root_genome)
 
-    current_layer = root_genome.get_generation()
-
     # upperbound found in smallest first algorithm
     upperbound = len(root_genome) - 1
 
-    n_children = 2
-
+    no_best_children = 2
     solution = root_genome.solution()
 
+    # create children and search for solution
     while stack:
+
         genome = stack.pop()
         genome_generation = genome.get_generation()
 
         if genome_generation < upperbound:
             children = genome.create_children(Fruitfly.breakpoint_compare)
 
-            # select 2 children with the smallest breakpoints
-            smallest_children = heapq.nsmallest(n_children, children)
+            # select 2 children with the lowest number of breakpoints
+            smallest_children = heapq.nsmallest(no_best_children, children)
 
-            # Check generation of child and check if the child is the solution
+            # checks for solution and updates upperbound
             for child in smallest_children:
                 if child.get_generation() < upperbound:
                     if child != solution:
@@ -60,18 +62,18 @@ def bnb(root_genome):
                     else:
                         upperbound = child.get_generation()
                         path = child.path_solution()
-                        path_length = child.path_length()
                         print("Solution found in generation: {}, but still"
-                        " searching for a better solution".format(upperbound))
+                              " searching for a better solution..."
+                              .format(upperbound))
 
     print("\nBest solution found in generation: ", upperbound)
     print("Path to solution: ")
 
-    for swap in range(len(path)):
-        print("swap: {:2d} {}".format(swap, path[swap]))
+    # prints path to solution
+    for inversion in range(len(path)):
+        print("Inversion: {:2d} {}".format(inversion, path[inversion]))
     print("")
 
     end_runtime = timeit.default_timer()
-
     runtime = (end_runtime - start_runtime)
-    print("runtime: ", runtime)
+    print("Runtime: ", runtime)
