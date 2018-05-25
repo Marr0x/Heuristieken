@@ -9,10 +9,10 @@
 #   the genome of one fruitfly species to the other one. To select "the best"
 #   fruitflychild it uses breakpoints, distancepoints or a combination of both.
 
-from .classes.Fruitfly import Fruitfly
+# from .classes.Fruitfly import Fruitfly
 import heapq
 import timeit
-import csv
+
 
 def bfs(root_genome, points_function=None):
     """ Best-First Search (bfs): Searches for series of mutations that changed
@@ -68,7 +68,6 @@ def bfs(root_genome, points_function=None):
             children = genome.create_children(points_function)
             for child in children:
                 heapq.heappush(queue, child)
-
 
     end_runtime = timeit.default_timer()
 
