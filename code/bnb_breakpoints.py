@@ -9,7 +9,6 @@
 
 from .classes.Fruitfly import Fruitfly
 import heapq
-import timeit
 
 def bnb(root_genome):
     """ Branch and Bound: depth first beam search with breakpoints

@@ -13,6 +13,7 @@ from .classes.Fruitfly import Fruitfly
 import heapq
 import timeit
 
+
 def bfs(root_genome, points_function=None):
     """ Best-First Search (bfs): Searches for series of mutations that changed
         the genome of one fruitfly species to the other one.
@@ -67,7 +68,6 @@ def bfs(root_genome, points_function=None):
             children = genome.create_children(points_function)
             for child in children:
                 heapq.heappush(queue, child)
-
 
     end_runtime = timeit.default_timer()
 
