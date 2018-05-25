@@ -14,7 +14,7 @@ class Fruitfly(object):
 
     """
 
-    def __init__(self, genes, generation=0, parent=None, points_function=None, mutationpoints = None):
+    def __init__(self, genes, generation=0, parent=None, points_function=None, mutationpoint = None):
         """ Initializes a fruitfly.
 
             Args:
@@ -32,6 +32,7 @@ class Fruitfly(object):
         self.genes = genes
         self.generation = generation
         self.parent = parent
+        self.mutationpoint = mutationpoint
 
         if not points_function:
             self.points_function = self.breakpoint_compare
@@ -40,7 +41,6 @@ class Fruitfly(object):
 
         self.breakpoint = self.breakpoints()
         self.distancepoint = self.distancepoints()
-        self.mutationpoint = mutationpoints
 
     def breakpoints(self):
         """ Calculates the sum of the breakpoints in a genome. A breakpoint
@@ -173,7 +173,7 @@ class Fruitfly(object):
 
         """
 
-        return self.mutationpoints
+        return self.mutationpoint
 
     def __eq__(self, other):
         """ Overrides equality operator to compare genes of fruitfly.
