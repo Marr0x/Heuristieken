@@ -247,7 +247,7 @@ class Fruitfly(object):
 
                 reversed_list = self.rev(start_rev, end_rev)
 
-                child = Fruitfly(reversed_list, self.generation + 1, self, compare_function, abs(end_rev - start_rev))
+                child = Fruitfly(reversed_list, self.generation + 1, self, compare_function, end_rev - start_rev)
 
                 children.append(child)
 

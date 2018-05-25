@@ -83,7 +83,8 @@ def make_fly(genome):
                       "(1) Branch and Bound: breakpoints\n"
                       "(2) best-first search: breakpoints\n"
                       "(3) best-first search: distancepoints\n"
-                      "(4) best-first search: combinationpoints\n")
+                      "(4) best-first search: combinationpoints\n"
+                      "(5) best-first search: mutationpoints\n")
 
     # implement algorithms
     if algorithm == "1":
@@ -98,6 +99,9 @@ def make_fly(genome):
     elif algorithm == "4":
         print("\n")
         best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)
+    elif algorithm == "5":
+        print("\n")
+        best_first_search.bfs(fly, Fruitfly.mutationpoint_compare)
     else:
         print("Please enter valid option")
 
