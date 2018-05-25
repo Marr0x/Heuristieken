@@ -7,9 +7,8 @@
 #
 #   Implements algorithms to find the evolutionary path between fruit fly species.
 
-from .classes.Fruitfly import Fruitfly
+# from .classes.Fruitfly import Fruitfly
 import heapq
-import timeit
 
 def bnb(root_genome):
     """ Branch and Bound: depth first beam search with breakpoints

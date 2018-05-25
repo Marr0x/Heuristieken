@@ -9,8 +9,8 @@
 #   fruit fly species.
 
 from code.classes.Fruitfly import Fruitfly
-from code import best_first_search
-from code import bnb_breakpoints
+from code.algorithms import best_first_search
+from code.algorithms import bnb_breakpoints
 from code import load_data
 from experimentation import test_set_100
 import numpy as np
