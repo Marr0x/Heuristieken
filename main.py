@@ -72,7 +72,6 @@ def main():
         test_set_100.random_genome_list(25)
 
 
-
 def make_fly(genome):
     """ Makes fruitfly using given genome.
 
