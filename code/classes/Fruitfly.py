@@ -115,9 +115,15 @@ class Fruitfly(object):
                 A boolean value.
         """
 
+<<<<<<< HEAD
         #
         alpha = 0.01
 
+=======
+        # 
+        alpha = 0.01
+        
+>>>>>>> 5dbaa2cb65f7b3e0414e3810ebed82558732c67c
         return self.breakpoint + round(self.distancepoint * alpha) < other.breakpoint + round(other.distancepoint * alpha)
 
     def get_genes(self):
