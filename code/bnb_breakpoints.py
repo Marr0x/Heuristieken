@@ -1,6 +1,6 @@
 #   bnb_breakpoints.py
 #
-#   Heuristics - Case: Fruit fly
+#   Heuristics - Case: Fruitfly
 #   Authors: Mercylyn Wiemer (10749306),
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
@@ -20,12 +20,13 @@ def bnb(root_genome):
     (integers ordered from low to high). The path consists of inversions of
     blocks of genes. From the root genome every possible inversion is generated:
     the children. The best two children, based on breakpoints, are selected and
-    added to the stack. Then the children are compard with the solution.
-    When in a generation the solution is found the upperbound is updated.
+    added to the stack. Then the children are compared to the solution.
+    When in a generation the solution is found, the upperbound is updated.
     So the algorithm will discard the children after this generation.
 
         Args:
             root_genome: genome sequence of fruitfly provided by user.
+
     """
 
     start_runtime = timeit.default_timer()
@@ -36,10 +37,10 @@ def bnb(root_genome):
     stack = []
     stack.append(root_genome)
 
-    # upperbound found in smallest first algorithm
+    # upperbound based upon sorting smallest integer first to correct position
     upperbound = len(root_genome) - 1
 
-    no_best_children = 2
+    n_best_children = 2
     solution = root_genome.solution()
 
     # create children and search for solution
@@ -52,7 +53,7 @@ def bnb(root_genome):
             children = genome.create_children(Fruitfly.breakpoint_compare)
 
             # select 2 children with the lowest number of breakpoints
-            smallest_children = heapq.nsmallest(no_best_children, children)
+            smallest_children = heapq.nsmallest(n_best_children, children)
 
             # checks for solution and updates upperbound
             for child in smallest_children:

@@ -1,6 +1,6 @@
 #   best_first_search.py
 #
-#   Heuristics - Case: Fruit fly
+#   Heuristics - Case: Fruitfly
 #   Authors: Mercylyn Wiemer (10749306),
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
@@ -57,11 +57,10 @@ def bfs(root_genome, points_function=None):
         # show path to solution, when solution found
         if genome == solution:
             solved = True
-            solution_child = genome
             print("Solution found in generation: ",
-                  solution_child.get_generation())
+                  genome.get_generation())
 
-            path = solution_child.path_solution()
+            path = genome.path_solution()
             print("Path to solution: ")
 
             for inversion in range(len(path)):

@@ -1,12 +1,12 @@
 #   main.py
 #
-#   Heuristics - Case: Fruit fly
+#   Heuristics - Case: Fruitfly
 #   Authors: Mercylyn Wiemer (10749306),
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
 #
 #   Implements algorithms to find the evolutionary path between
-#   fruit fly species.
+#   fruitfly species.
 
 from code.classes.Fruitfly import Fruitfly
 from code import best_first_search
@@ -21,14 +21,14 @@ def main():
     while True:
         try:
             genomeset = int(input("Please choose one of the options below: \n"
-                                  "(1) Use D. Melanogaster genome set with 25 genes\n"
+                                  "(1) D. Melanogaster genome set with 25 genes\n"
                                   "(2) Generate random genome set\n"))
         except ValueError:
-            print("Please enter valid option (number).")
+            print("Please enter a valid option (number).")
             continue
 
         if genomeset < 1 or genomeset > 2:
-            print("Please enter valid option (number).")
+            print("Please enter a valid option (number).")
             continue
         else:
             break
@@ -98,7 +98,7 @@ def make_fly(genome):
         print("\n")
         best_first_search.bfs(fly, Fruitfly.combinationpoint_compare)
     else:
-        print("Please enter valid option")
+        print("Please enter a valid option (number).")
 
 
 if __name__ == "__main__":
