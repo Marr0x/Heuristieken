@@ -13,7 +13,7 @@ from code import best_first_search
 from code import bnb_breakpoints
 from code import helpers
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 def main():
 

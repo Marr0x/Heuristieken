@@ -75,3 +75,5 @@ def bfs(root_genome, points_function=None):
     end_runtime = timeit.default_timer()
     runtime = (end_runtime - start_runtime)
     print("Runtime: ", runtime)
+
+    return genome.get_generation()
