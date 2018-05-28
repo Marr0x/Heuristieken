@@ -2,7 +2,6 @@ from .classes.Fruitfly import Fruitfly
 import numpy as np
 import heapq
 import timeit
-<<<<<<< HEAD
 
 def beamsearch(root_genome, points_function=None):
 
@@ -65,8 +64,8 @@ def beamsearch(root_genome, points_function=None):
     runtime = (end_runtime - start_runtime)
     print("Runtime: ", runtime)
 
-    return genome.get_generation()    
-            
+    return genome.get_generation()
+
 
 # def main():
 #     # root_genome = [1,2,3,4,5]
