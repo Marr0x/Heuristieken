@@ -90,13 +90,9 @@ def beamsearch(root_genome, beam, points_function=None):
     runtime = (end_runtime - start_runtime)
     print("Runtime: ", runtime)
 
-    # return genome.get_generation()
-
 
 def main():
-    # root_genome = [1,2,3,4,5]
     root_genome = [23, 1, 2, 11, 24, 22, 19, 6, 10, 7, 25, 20, 5, 8, 18, 12, 13, 14, 15, 16, 17, 21, 3, 4, 9]
-    # np.random.shuffle(root_genome)
     fly = Fruitfly(root_genome)
     beamsearch(fly, 50)
 

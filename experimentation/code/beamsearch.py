@@ -32,6 +32,7 @@ def beamsearch(root_genome, beam, points_function=None):
     """
     start_runtime = timeit.default_timer()
 
+    # set heuristic
     if not points_function:
         points_function = Fruitfly.breakpoint_compare
 
