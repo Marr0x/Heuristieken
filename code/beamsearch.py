@@ -5,13 +5,13 @@
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
 
-from .classes.Fruitfly import Fruitfly
+from classes.Fruitfly import Fruitfly
 import numpy as np
 import heapq
 import timeit
 
 
-def beamsearch(root_genome,  points_function=None, beam):
+def beamsearch(root_genome, beam, points_function=None):
     """ Beam search.
 
     Heuristic search algorithm: Optimized Best-first search.
@@ -90,4 +90,15 @@ def beamsearch(root_genome,  points_function=None, beam):
     runtime = (end_runtime - start_runtime)
     print("Runtime: ", runtime)
 
-    return genome.get_generation()
+    # return genome.get_generation()
+
+
+def main():
+    # root_genome = [1,2,3,4,5]
+    root_genome = [23, 1, 2, 11, 24, 22, 19, 6, 10, 7, 25, 20, 5, 8, 18, 12, 13, 14, 15, 16, 17, 21, 3, 4, 9]
+    # np.random.shuffle(root_genome)
+    fly = Fruitfly(root_genome)
+    beamsearch(fly, 50)
+
+if __name__ == '__main__':
+    main()
