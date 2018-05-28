@@ -1,10 +1,36 @@
+#   beamsearch.py
+#
+#   Heuristics - Case: Fruitfly
+#   Authors: Mercylyn Wiemer (10749306),
+#            Shan Shan Huang (10768793),
+#            Marwa Ahmed (10747141)
+
 from .classes.Fruitfly import Fruitfly
 import numpy as np
 import heapq
 import timeit
 
-def beamsearch(root_genome, points_function=None):
 
+def beamsearch(root_genome,  points_function=None, beam):
+    """ Beam search.
+
+    Heuristic search algorithm: Optimized Best-first search.
+    From every layer only the best/promising n (beam) children are selected and
+    added to the queue. Depending on the chosen beam: the best solution could
+    be returned. The algorithms stops searching when a solution is found.
+
+        Args:
+            root_genome: genome sequence of fruitfly provided by user.
+            points_function: selects "best" fruitfly child based on
+                breakpoints, distance points, mutationpoints or a combination of
+                breakpoints + distancepoints. Default is set on breakpoints.
+            beam (integer): number of best partial solutions as candidats.
+
+        Returns:
+            Numbers of inversions (generations) needed to go from the
+            root_genome to the solution genome.
+
+    """
     start_runtime = timeit.default_timer()
 
     if not points_function:
@@ -19,7 +45,6 @@ def beamsearch(root_genome, points_function=None):
     else:
         print("Beam Search: Combinationpoints")
 
-
     print("root genome:", root_genome)
 
     solved = False
@@ -32,6 +57,7 @@ def beamsearch(root_genome, points_function=None):
     while not solved:
 
         if queue:
+
             # get current node with least points
             genome = queue.pop(0)
 
@@ -65,14 +91,3 @@ def beamsearch(root_genome, points_function=None):
     print("Runtime: ", runtime)
 
     return genome.get_generation()
-
-
-# def main():
-#     # root_genome = [1,2,3,4,5]
-#     root_genome = [23, 1, 2, 11, 24, 22, 19, 6, 10, 7, 25, 20, 5, 8, 18, 12, 13, 14, 15, 16, 17, 21, 3, 4, 9]
-#     np.random.shuffle(root_genome)
-#     fly = Fruitfly(root_genome)
-#     beamsearch(fly)
-
-# if __name__ == '__main__':
-#     main()
