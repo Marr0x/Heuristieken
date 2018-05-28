@@ -31,7 +31,7 @@ def bnb(root_genome):
 
     start_runtime = timeit.default_timer()
 
-    print("Branch and Bound: depth-first search using breakpoints.\n")
+    print("Branch and Bound: depth-first search using breakpoints.")
     print("Genome fruitfly:", root_genome)
 
     stack = []
@@ -67,14 +67,17 @@ def bnb(root_genome):
                               " searching for a better solution..."
                               .format(upperbound))
 
-    print("\nBest solution found in generation: ", upperbound)
+    print("Best solution found in generation: ", upperbound)
     print("Path to solution: ")
 
     # prints path to solution
     for inversion in range(len(path)):
         print("Inversion: {:2d} {}".format(inversion, path[inversion]))
-    print("")
+    # print("")
 
     end_runtime = timeit.default_timer()
     runtime = (end_runtime - start_runtime)
     print("Runtime: ", runtime)
+
+
+    return upperbound
