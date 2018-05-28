@@ -21,9 +21,9 @@ This folder holds the scripts
 
 ### Experiments ###
 This folder holds pdf files with the experiments and their description.
-    - Beam-VS-bestfirst.pdf
-    - BnB-number-best-children.pdf
-    - Compare-Beamsize.pdf
+- Beam-VS-bestfirst.pdf
+- BnB-number-best-children.pdf
+- Compare-Beamsize.pdf
 
 
 ## Authors ##
