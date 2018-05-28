@@ -2,6 +2,7 @@ from .classes.Fruitfly import Fruitfly
 import numpy as np
 import heapq
 import timeit
+<<<<<<< HEAD
 
 def beamsearch(root_genome, points_function=None):
 
@@ -52,15 +53,13 @@ def beamsearch(root_genome, points_function=None):
 
                 for child in children:
                     heapq.heappush(priority_queue, child)
-                    current_layer = child.get_generation()
 
         else:
-            for child in range(50):
+            for child in range(beam):
                 best = heapq.heappop(priority_queue)
                 queue.append(best)
 
             priority_queue[:] = []
-
 
     end_runtime = timeit.default_timer()
     runtime = (end_runtime - start_runtime)
