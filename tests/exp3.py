@@ -11,7 +11,7 @@
 from code.classes.Fruitfly import Fruitfly
 from code.classes.Fruitflytest import Fruitflytest
 from code import bfs_basic
-from code import dfs_basic
+from code import dfs_upperbound
 from code import best_first_search
 from code import bnb_breakpoints
 import matplotlib
@@ -26,7 +26,7 @@ fly1=Fruitfly(new_genome, 0)
 fly2=Fruitflytest(new_genome, 0)
 generation_bfs_break = best_first_search.bfs(fly1)
 generation_bfs_basic = bfs_basic.bfs(fly2)
-generation_dfs_basic = dfs_basic.dfs(fly2)
+generation_dfs_basic = dfs_upperbound.dfs(fly2)
 
 print("breadth first", generation_bfs_break)
 print("gen bfs basic", generation_bfs_basic)
