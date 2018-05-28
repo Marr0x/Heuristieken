@@ -5,8 +5,7 @@
 #            Shan Shan Huang (10768793),
 #            Marwa Ahmed (10747141)
 
-from classes.Fruitfly import Fruitfly
-import numpy as np
+from Fruitfly import Fruitfly
 import heapq
 import timeit
 
