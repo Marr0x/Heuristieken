@@ -25,7 +25,6 @@ This folder holds pdf files with the experiments and their description.
 - BnB-number-best-children.pdf
 - Compare-Beamsize.pdf
 
-
 ## Authors ##
 - Marwa Ahmed
 - Shan Shan Huang
